@@ -1,0 +1,89 @@
+<% layout("/layouts/boilerplate") %> 
+
+<body>
+   <!-- <h3 class="display-7 fw-bold">Explore Royal Stay</h3> -->
+    <!-- <form method="get" action="/listings/new">
+        <button> Create new listings </button>
+    </form> -->
+
+<div class="filters">
+
+  <a href="/listings/category/Mountains" class="filter">
+    <i class="fa-solid fa-mountain"></i>
+    <p>Mountains</p>
+  </a>
+
+  <a href="/listings/category/Beaches" class="filter">
+    <i class="fa-solid fa-umbrella-beach"></i>
+    <p>Beaches</p>
+  </a>
+
+  <a href="/listings/category/Camping" class="filter">
+    <i class="fa-solid fa-campground"></i>
+    <p>Camping</p>
+  </a>
+
+  <a href="/listings/category/Castle" class="filter">
+    <i class="fa-solid fa-chess-rook"></i>
+    <p>Castle</p>
+  </a>
+
+  <a href="/listings/category/Luxury" class="filter">
+    <i class="fa-solid fa-hotel"></i>
+    <p>Luxury</p>
+  </a>
+
+  <a href="/listings/category/Pools" class="filter">
+    <i class="fa-solid fa-water-ladder"></i>
+    <p>Pools</p>
+  </a>
+
+  <a href="/listings/category/Arctic" class="filter">
+    <i class="fa-regular fa-snowflake"></i>
+    <p>Arctic</p>
+  </a>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <% for (let listing of allListings) { %>
+        <a href="/listings/<%= listing._id %>" class="listing-link">
+    <div class="card col listing-card">
+   <img 
+src="<%= listing.image?.url %>" 
+class="card-img-top" 
+alt="listing_image"  style="height: 22rem;">
+
+<div class="card-img-overlay"></div>
+
+<div class="card-body">
+    <p class="card-text"> 
+       <b> <%= listing. title %> <br></b>
+      ₹<%= Number(listing.price || 0).toLocaleString("en-IN") %> /night
+      
+    </p>
+  </div>
+</div>
+   </a>
+ <% }  %>
+  </div>  
+
+
+
+
+
+
+
+
+
+ 
+</body>

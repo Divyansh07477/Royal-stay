@@ -1,0 +1,291 @@
+ <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="/css/royal.png" class="logo">
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+   
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <div class="navbar-nav">
+
+        <a class="nav-link" href="/">Home</a>
+
+        <a class="nav-link" href="/listings">
+          All Hotels
+        </a>
+
+        <a class="nav-link" href="/listings/new">
+          Add new Hotels
+        </a>
+
+      </div>
+
+    
+      <form
+        class="d-flex ms-auto rohit"
+        action="/listings/search"
+        method="GET">
+
+        <input
+          class="search-input"
+          placeholder="Search Hotels"
+          type="search"
+          name="q"
+        >
+
+        <button class="pragati" type="submit">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          Search
+
+        </button>
+
+      </form>
+
+      
+      <div class="ms-3 theme-toggle">
+
+        <input type="checkbox" id="darkModeToggle">
+
+        <label for="darkModeToggle" class="toggle-label">
+
+          <span class="sun">
+            <i class="fa-solid fa-sun"></i>
+          </span>
+
+          <span class="moon">
+            <i class="fa-regular fa-moon"></i>
+          </span>
+
+          <div class="toggle-ball"></div>
+
+        </label>
+
+      </div>
+
+
+
+
+
+
+
+
+
+<!-- LOGIN / SIGNUP MENU -->
+
+<% if (!currentUser) { %>
+
+<div class="dropdown ms-3">
+
+  <button
+    class="menu-btn dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown">
+
+    <i class="fa-solid fa-bars"></i>
+
+  </button>
+
+  <ul class="dropdown-menu dropdown-menu-end">
+
+    <li>
+      <a class="dropdown-item" href="/login">
+        Login
+      </a>
+    </li>
+
+    <li>
+      <a class="dropdown-item" href="/signup">
+        Signup
+      </a>
+    </li>
+
+  </ul>
+
+</div>
+
+<% } else { %>
+
+<div class="dropdown ms-3">
+
+  <button
+    class="menu-btn dropdown-toggle"
+    type="button"
+    data-bs-toggle="dropdown">
+
+    <i class="fa-solid fa-user"></i>
+  </button>
+
+  <ul class="dropdown-menu dropdown-menu-end">
+
+    <li>
+      <a class="dropdown-item" href="/logout">
+        Logout
+      </a>
+    </li>
+
+  </ul>
+
+</div>
+
+<% } %>
+
+
+
+      
+
+
+    </div>
+
+  </div>
+
+</nav> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+
+  <div class="container-fluid">
+
+   
+    <a class="navbar-brand" href="/">
+      <img src="/css/royal.png" class="logo">
+    </a>
+
+   
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <div class="navbar-nav">
+
+        <a class="nav-link" href="/">Home</a>
+
+        <a class="nav-link" href="/listings">
+          All Hotels
+        </a>
+
+        <a class="nav-link" href="/listings/new">
+          Add new Hotels
+        </a>
+
+      </div>
+
+    
+      <form
+        class="d-flex ms-auto rohit"
+        action="/listings/search"
+        method="GET">
+
+        <input
+          class="search-input"
+          placeholder="Search Hotels"
+          type="search"
+          name="q"
+        >
+
+        <button class="pragati" type="submit">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          Search
+
+        </button>
+
+      </form>
+
+     
+      <div class="dropdown ms-3">
+
+        <button
+          class="menu-btn dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown">
+
+          <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+        <ul class="dropdown-menu dropdown-menu-end">
+
+          <li>
+            <a class="dropdown-item" href="/login">
+              Login
+            </a>
+          </li>
+
+          <li>
+            <a class="dropdown-item" href="/signup">
+              Signup
+            </a>
+          </li>
+
+          <li><hr class="dropdown-divider"></li>
+
+          
+
+         <div class="ms-3 theme-toggle">
+
+        <input type="checkbox" id="darkModeToggle">
+
+        <label for="darkModeToggle" class="toggle-label">
+
+          <span class="sun">
+            <i class="fa-solid fa-sun"></i>
+          </span>
+
+          <span class="moon">
+            <i class="fa-regular fa-moon"></i>
+          </span>
+
+          <div class="toggle-ball"></div>
+
+        </label>
+
+      </div>
+
+
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</nav> -->

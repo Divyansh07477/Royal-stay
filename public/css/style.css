@@ -1,0 +1,862 @@
+body{
+    font-family: "Plus Jakarta Sans",sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+
+.navbar {
+    height: 5rem;
+    background-color: aliceblue;
+}
+
+  .fa-hotel{
+    color: red;
+    font-size: 1.8rem;
+    
+}
+
+.nav-link {
+    color: black !important;
+    
+}
+
+/* rating  */
+.star-rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: start;
+  gap: 8px;
+  font-size: 2.7rem;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating label {
+  color: #ccc;
+  cursor: pointer;
+  transition: 
+    color 0.3s ease,
+    transform 0.45s ease;
+}
+
+
+.star-rating input:checked ~ label {
+  color: gold;
+  transform: scale(1.15);
+}
+
+
+
+/* footer */
+.f-info-links a{
+  text-decoration: none;
+  color:#222222;
+  margin-bottom: 0.2rem;
+
+}
+.f-info-links a:hover{
+  text-decoration: underline;
+  color:black;
+
+}
+.f-info-links {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.1rem;
+    gap: 0.1rem;
+}
+.f-info-socials{
+    width: 100%;
+    font-size: 1.3rem;
+    vertical-align: middle;
+    
+}
+.f-info-socials i{
+    margin-right: 0.5rem;
+
+}
+
+
+.f-info{
+    text-align: center;
+    display: flex;
+    background-color: aliceblue;
+    height: 7.5rem;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items:space-evenly;
+    margin-top: 8%;
+   
+    
+
+}
+.f-info-company{
+    width: 100%;
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    color: #222222;
+}
+
+
+.logo{
+    height: 91px;
+    width: 130px;
+    object-fit: cover;
+    border-radius: 50%;
+    
+}
+
+/* cards */
+.listing-card{
+    border: none !important;
+    margin-bottom: 1.5rem;
+
+}
+
+
+
+
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+   object-fit: cover;
+
+
+}
+
+.card-body {
+    padding: 0;
+
+}
+.card-text{
+    font-weight: 400 !important;
+}
+.listing-link{
+    text-decoration: none;
+}
+
+/* cards */
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: aliceblue;
+}
+/* new page */
+.add-btn {
+    background-color:red !important;
+    border: none !important;
+}
+
+/* edit */
+.edit0btn{
+    background-color: red !important;
+    border: none !important;
+    margin-bottom: 2rem !important;
+}
+
+/*show page */
+.show-img{
+    height: 30vh;
+
+}
+
+.btns{
+    display: flex;
+}
+
+.btn-dark {
+    margin-bottom: 2rem;
+}
+.show-card {
+    padding-left: 0;
+    padding-right: 0;
+}
+.p {
+    margin-left: 4rem;
+}
+
+
+
+.nav-link{
+    font-size: 20px;
+}
+
+
+/* home page */
+
+body{
+    margin: 0;
+}
+
+
+.hero-section{
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)),
+    url("https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+}
+
+.hero-section h1{
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.hero-section p{
+    width: 60%;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.explore-btn{
+    margin-top: 1.5rem;
+    padding: 12px 24px;
+    background: red;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+.home-cards{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 4rem;
+    flex-wrap: wrap;
+}
+
+.home-card{
+    width: 300px;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.home-card i{
+    font-size: 2rem;
+    color: red;
+    margin-bottom: 1rem;
+}
+
+
+
+
+/*input */ 
+
+  .search-input{
+    width: 290px;
+    padding: 10px;
+      border: 2px solid #d6e8ff;
+    transition: 0.1s ease;
+      text-align: center;
+       /* margin-right: 20px; */
+    border-radius: 25px;
+   cursor: pointer;
+   
+}
+
+ .search-input:focus{
+     outline: none;
+   
+    border: 4px solid #b7d7ff;
+    box-shadow: 0 0 12px rgba(183,215,255,0.8);
+} 
+
+.rohit{
+     display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 30px;
+  
+    
+}
+
+
+/*search */
+  .pragati {
+    background-color: red;
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0 16px;  
+    height: 45px;
+
+    border-radius: 23px;
+    border: none;
+
+   margin-left: 0px;
+}
+
+
+.pragati i{
+     margin-right: 8px; color: white;
+}
+
+
+
+.pragati:hover{ 
+    background: whitesmoke; transition: 0.3s ease; color:#222222; }
+
+
+/* reserve */
+ .reserve-btn{
+    background-color: red !important;
+    color: white !important;
+    border: none !important;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 16px;
+     margin-left: 50%;
+     margin-top: 10%;
+}
+
+.reserve-btn:hover{
+     background-color: white !important; 
+     transition: 0.3s ease !important; 
+     color:#222222 !important; 
+} 
+    
+/* map */
+.map-container{
+    overflow: hidden !important;
+    border-radius: 25px;
+}
+
+
+
+
+
+
+/* menu */
+.menu-btn {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 0.45rem 0.8rem;
+}
+
+.menu-btn:hover {
+    background-color: #f5f5f5;
+}
+
+/* LIGHT MODE ICON */
+
+.menu-btn .fa-bars {
+    color: black;
+}
+
+/* DROPDOWN */
+
+.dropdown-menu {
+    border-radius: 12px;
+    min-width: 50px;
+    border: 1px solid #ddd;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown-item {
+    padding: 0.2rem 0.3rem;
+    
+}
+
+.dropdown-item:hover {
+    background-color: #f2f2f2;
+}
+
+/* DARK MODE */
+
+body.dark {
+    background-color: #121212;
+    color: white;
+}
+
+body.dark .navbar {
+    background-color: black !important;
+    color: aliceblue !important;
+}
+
+body.dark .nav-link {
+    color: aliceblue !important;
+}
+
+body.dark .card {
+    background-color: #222;
+    color: white;
+}
+
+body.dark a {
+    color: white;
+}
+
+/* MENU BUTTON DARK */
+
+body.dark .menu-btn {
+    background-color: #222;
+    border: 1px solid #555;
+}
+
+/* DARK MODE ICON */
+
+body.dark .menu-btn .fa-bars {
+    color: white;
+}
+
+/* DROPDOWN DARK */
+
+body.dark .dropdown-menu {
+    background-color: #222;
+    border: 1px solid #444;
+}
+
+body.dark .dropdown-item {
+    color: white;
+}
+
+body.dark .dropdown-item:hover {
+    background-color: #333;
+}
+
+
+
+/* DROPDOWN ARROW LIGHT */
+
+.menu-btn.dropdown-toggle::after {
+    color: black;
+}
+
+/* DROPDOWN ARROW DARK */
+
+body.dark .menu-btn.dropdown-toggle::after {
+    color: white;
+}
+  /* icons */
+  .filters{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    overflow-x: auto;
+    margin: 1rem 0rem 2rem 1rem;
+    margin-left: 22%;
+    margin-bottom: 1%;
+}
+
+.filter{
+    text-align: center;
+    text-decoration: none;
+    color: gray;
+    opacity: 0.7;
+}
+
+.filter:hover{
+    opacity: 1;
+}
+
+.filter i{
+    font-size: 1.3rem;
+}
+
+.filter p{
+    font-size: 0.8rem;
+}
+.fa-solid {
+    color: #222222;
+}
+.fa-regular{
+    color: #222222;
+}
+
+
+/* MODE */
+.theme-toggle{
+    display: flex;
+    align-items: center;
+    height: 10px;
+   
+}
+
+#darkModeToggle{
+    display: none;
+}
+
+
+
+.toggle-label{
+   width: 50px;
+    height: 22px;
+    background: #e4e4e4;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+    margin-right: 0%;
+
+}
+
+.toggle-ball{
+     width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 4px;
+    transition: 0.3s;
+}
+.sun{
+   position: relative;
+   right: 5px;
+}
+.theme-toggle {
+    margin-right: 30%;
+}
+
+#darkModeToggle:checked + .toggle-label .toggle-ball{
+    transform: translateX(25px);
+} */
+
+body.dark{
+    background-color: #121212;
+    color: white;
+}
+
+body.dark .navbar{
+    background-color:black !important;
+    color: aliceblue !important;
+   
+}
+
+body.dark .nav-link{
+    color: aliceblue !important;
+}
+
+
+
+body.dark .card{
+    background-color: #222;
+    color: white;
+}
+
+body.dark a{
+    color: white;
+}
+
+/* footer  mode */
+body.dark footer{
+    background-color: aliceblue !important;
+    color: black !important;
+}
+
+body.dark footer a{
+    color: black !important;
+}
+
+body.dark footer i{
+    color: black !important;
+}
+
+body.dark .f-info-company{
+    color: black !important;
+}
+
+body.dark .name{
+    color: black !important;
+}
+
+/*  create listing mode */
+
+    body.dark{
+    background-color: #121212 !important;
+    color: white !important;
+}
+
+/* form labels */
+body.dark .form-label{
+    color: white !important;
+}
+
+/* inputs */
+body.dark .form-control{
+    background-color: #222 !important;
+    color: white !important;
+    border: 1px solid #555 !important;
+}
+
+/* textarea */
+body.dark textarea{
+    background-color: #222 !important;
+    color: white !important;
+    border: 1px solid #555 !important;
+}
+
+/* select option */
+body.dark select{
+    background-color: #222 !important;
+    color: white !important;
+    border: 1px solid #555 !important;
+}
+
+/* placeholder */
+body.dark .form-control::placeholder{
+    color: #bbb !important;
+}
+
+/* heading */
+body.dark h3{
+    color: white !important;
+}
+
+/* validation */
+body.dark .valid-feedback{
+    color: lightgreen !important;
+}
+
+body.dark .invalid-feedback{
+    color: #ff6b6b !important;
+}
+
+/* filter mode */
+body.dark .filters{
+    background-color: #121212 !important;
+}
+
+body.dark .filter{
+    color: white !important;
+}
+
+body.dark .filter p{
+    color: white !important;
+}
+
+body.dark .filter i{
+    color: white !important;
+}
+
+body.dark .filter:hover{
+    opacity: 0.8;
+}
+
+/* footer mode */ 
+body.dark footer{
+    background-color: #111 !important;
+    color: black !important;
+}
+
+/* social icons */
+body.dark .f-info-socials i{
+    color: black     !important;
+}
+
+/* links */
+body.dark .f-info-links a{
+    color: black !important;
+}
+
+/* company text */
+body.dark .f-info-company{
+    color: black !important;
+}
+
+/* name */
+body.dark .name{
+    color: black !important;
+}
+
+
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    /* navbar */
+    .navbar {
+        height: auto;
+        padding: 0.7rem 1rem;
+    }
+
+    .logo {
+        height: 70px;
+        width: 90px;
+    }
+
+    .nav-link {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    /* search */
+    .rohit {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .search-input {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .pragati {
+        width: auto;
+        height: 42px;
+    }
+
+    /* hero section */
+    .hero-section {
+        height: 70vh;
+        padding: 1rem;
+    }
+
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-section p {
+        width: 95%;
+        font-size: 1rem;
+    }
+
+    .explore-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    /* cards */
+    .home-cards {
+        padding: 2rem 1rem;
+        gap: 1rem;
+    }
+
+    .home-card {
+        width: 100%;
+    }
+
+    .listing-card {
+        margin-bottom: 2rem;
+    }
+
+    .card-img-top {
+        height: 250px;
+    }
+
+    /* filters */
+    .filters {
+        margin-left: 0;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    /* footer */
+    .f-info {
+        height: auto;
+        padding: 1rem;
+    }
+
+    .f-info-links,
+    .f-info-socials,
+    .f-info-company {
+        width: 100%;
+        margin-bottom: 0.8rem;
+    }
+
+    /* show page */
+    .show-img {
+        height: 35vh;
+    }
+
+    .btns {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .p {
+        margin-left: 0;
+    }
+
+    /* dark mode toggle */
+    .theme-toggle {
+        margin-right: 0;
+        justify-content: center;
+        margin-top: 1rem;
+    }
+
+    .toggle-label {
+        margin-left: 0;
+    }
+
+}
+
+
+/* =========================
+   TABLET RESPONSIVE
+========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .hero-section h1 {
+        font-size: 3rem;
+    }
+
+    .hero-section p {
+        width: 80%;
+    }
+
+    .home-card {
+        width: 45%;
+    }
+
+    .filters {
+        margin-left: 5%;
+    }
+
+    .search-input {
+        width: 220px;
+    }
+
+    .toggle-label {
+        margin-left: 0;
+    }
+
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
