@@ -3,8 +3,8 @@
      <div class="row mt-5">
         <div class="col-7 offset-2">
     
- <h3> Edit your Listing </h3>
-    <form method="post" action="/listings/<%=listing._id %>?_method=put" novalidate class="needs-validation">
+ <h3> Edit your Hotel </h3>
+    <form method="post" action="/listings/<%=listing._id %>?_method=put" enctype="multipart/form-data" novalidate class="needs-validation">
          <div class="mb-3">
             <label for="title" class="form-label">  Title</label>
                 <input name ="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required/>
@@ -36,18 +36,30 @@
 
 
 
-
 <div class="mb-3">
-<label for="image" class="form-label">  Image</label>
-    <input name ="listing[image][url]" value="<%= listing.image.url %>" type="text" class="form-control"/>
-    <div class="valid-feedback">
-       Your image link is Unbelieveable
-    </div>
-              
-    <div class="invalid-feedback">
-        Please enter a vaild image link
-    </div> 
-   </div>
+  <label class="form-label">Image</label>
+
+  <!-- current image preview -->
+  <br>
+   <img src="<%= listing.image.url %>" width="200">
+
+  <!-- <input type="file" name="listing[image]" class="form-control">  -->
+
+  <!-- file upload input -->
+  <input 
+    type="file" 
+    name="listing[image]" 
+    class="form-control"
+  >
+
+  <div class="valid-feedback">
+    Image is perfect
+  </div>
+
+  <div class="invalid-feedback">
+    Please upload a valid image
+  </div>
+</div>
 
 
 

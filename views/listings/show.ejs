@@ -12,7 +12,7 @@
 
     <div class="card col-10 offset-1 show-card listing-card">
 
-   <img 
+   <img class="papa"
 src="<%= listing.image?.url  %>"
 class="card-img-top show-img"
 alt="listing_image">
@@ -36,22 +36,86 @@ alt="listing_image">
 </div>
     </div>
 
- <div class="d-flex gap-3 mt-3 justify-content-space-evenly">
-     <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark col-1 offset-1 edit0btn" > Edit</a>
+ <% if (currentUser && listing.owner && listing.owner.equals(currentUser._id)) { %>
 
-    <form method="post" action="/listings/<%=listing._id %>?_method=DELETE">
-    <button class="btn btn-dark  offset-2" > Delete </button>
-</form>
-  
+<div class="d-flex gap-3 mt-3 justify-content-space-evenly">
+
+    <a href="/listings/<%= listing._id %>/edit"
+       class="btn btn-dark col-1 offset-1 edit0btn">
+        Edit
+    </a>
+
+    <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
+        <button class="btn btn-dark offset-2">
+            Delete
+        </button>
+    </form>
+
 </div>
 
+<% } %>
+    
 
- <form action="/listings/<%= listing._id %>/reserve" method="POST">
-    <button class="btn reserve-btn">
-        Reserve
-    </button>
-</form> 
 
+
+
+ <button class="btn reserve-btn" type="button" onclick="showReserveForm()">
+    Reserve
+</button>
+
+<div id="reserveForm" class="card p-4 mt-4" style="display:none;">
+
+    <h4 class="mb-3">Reservation Details</h4>
+
+    <form action="/listings/<%= listing._id %>/reserve" method="POST">
+
+        <div class="mb-3">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" name="name" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" required>
+        </div>
+
+         <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <input type="number" class="form-control" name="Phone Number" required>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Check-In</label>
+                <input type="date" class="form-control" name="checkin" required>
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label">Check-Out</label>
+                <input type="date" class="form-control" name="checkout" required>
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Guests</label>
+            <input type="number" class="form-control" name="guests" min="1" value="1" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Special Request</label>
+            <textarea class="form-control" rows="3" name="request"></textarea>
+        </div>
+
+        <button class="btn btn-success w-100">
+            Confirm Reservation
+        </button>
+
+    </form>
+
+</div>
 
 
 
@@ -154,6 +218,25 @@ alt="listing_image">
 
 
 
+<script>
+function showReserveForm() {
+    let form = document.getElementById("reserveForm");
+
+    if (form.style.display === "none") {
+        form.style.display = "block";
+    } else {
+        form.style.display = "none";
+    }
+}
+</script>
+
+
+
+
+
+
+
+
 
 <script>
 
@@ -195,3 +278,6 @@ async function getWeather() {
 getWeather();
 
 </script>
+
+
+

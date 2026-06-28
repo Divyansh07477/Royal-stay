@@ -5,7 +5,7 @@
             <br>
     <h3> Create a New Hotels </h3>
 
-    <form method="post" action="/listings" noValidate class="needs-validation">
+  <form method="post" action="/listings" noValidate class="needs-validation" enctype="multipart/form-data">
         <div class="mb-3">
 
              <label for="title" class="form-label">  Title</label>
@@ -40,7 +40,7 @@
         <div class="mb-3">
             <label for="image" class="form-label">  Image Link </label>
              
-        <input name ="listing[image][url]" placeholder="Enter image URL/link"  class="form-control">
+       <input type="file" name="listing[image]" class="form-control" required>
         </div>
 
        <div class="row">

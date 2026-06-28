@@ -1,19 +1,41 @@
+
+ require("dotenv").config();
+
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
+  const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
-const path =require("path");
-const methodOverride = require ("method-override");
+const path = require("path");
+const methodOverride = require("method-override");
+const { cloudinary } = require("./cloudConfig.js");
+ mongoose.set("strictQuery", true);
+//const MONGO_URL = "mongodb://RoyalStay:Trading@ac-yf1zvik-shard-00-00.wxps4d0.mongodb.net:27017,ac-yf1zvik-shard-00-01.wxps4d0.mongodb.net:27017,ac-yf1zvik-shard-00-02.wxps4d0.mongodb.net:27017/wanderlust?ssl=true&replicaSet=atlas-rjyhn9-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0";
+
+// main()
+// .then(() => {
+//     console.log("Connected to DB");
+// })
+// .catch((err) => {
+//     console.log(err);
+// });
+
+// async function main() {
+//     await mongoose.connect(MONGO_URL);
+// }
 
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
-mongoose.set("strictQuery", true);
+
+
+  
+  const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+  
+   mongoose.set("strictQuery", true);
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
 const session = require("express-session");
 const ExpressError = require("./utils/ExpressError.js");
 
-// const wrapAsync = require("./utils/wrapAsync.js");
+
 
 const{listingSchema,reviewSchema}=require("./schema.js");
 const Review =require("./models/review.js");
@@ -29,9 +51,12 @@ const User = require("./models/user.js");
 const userRouter=require("./routes/user.js");
 
 
-async function main() {
-  await mongoose.connect(MONGO_URL);
-}
+ async function main() {
+    await mongoose.connect(MONGO_URL);
+  }
+
+
+
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname, "views"));
@@ -74,6 +99,10 @@ app.use((req, res, next) => {
   res.locals.currentUser = req.user;
   next();
 });
+
+
+
+
 // app.get("/demouser", async (req,res)=>{
 //   let fakeUser = new User({
 //     email: "ffshiva494@gmail.com",
