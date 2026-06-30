@@ -79,6 +79,9 @@ router.get("/:id", wrapAsync(async (req, res) => {
 
 // }));
 
+
+
+//create route
 router.post(
   "/",
   isLoggedIn,
@@ -97,10 +100,11 @@ router.post(
 
     await newListing.save();
 
+    console.log("Saved Listing:", newListing);
+
     req.flash("success", "New Hotel Created Successfully");
     res.redirect("/listings");
 }));
-
 
 
 
@@ -166,8 +170,8 @@ router.put("/:id",
 
 
 //delete route
-//router.delete("/:id",  wrapAsync(async (req, res) => {
-router.delete("/:id", isLoggedIn, isOwner, wrapAsync(async (req, res) => {
+router.delete("/:id",  wrapAsync(async (req, res) => {
+//router.delete("/:id", isLoggedIn, isOwner, wrapAsync(async (req, res) => {
   let { id } = req.params;
 
   let deletedListing = await Listing.findByIdAndDelete(id);

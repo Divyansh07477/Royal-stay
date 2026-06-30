@@ -9,30 +9,15 @@ const path = require("path");
 const methodOverride = require("method-override");
 const { cloudinary } = require("./cloudConfig.js");
  mongoose.set("strictQuery", true);
-//const MONGO_URL = "mongodb://RoyalStay:Trading@ac-yf1zvik-shard-00-00.wxps4d0.mongodb.net:27017,ac-yf1zvik-shard-00-01.wxps4d0.mongodb.net:27017,ac-yf1zvik-shard-00-02.wxps4d0.mongodb.net:27017/wanderlust?ssl=true&replicaSet=atlas-rjyhn9-shard-0&authSource=admin&retryWrites=true&w=majority&appName=Cluster0";
-
-// main()
-// .then(() => {
-//     console.log("Connected to DB");
-// })
-// .catch((err) => {
-//     console.log(err);
-// });
-
-// async function main() {
-//     await mongoose.connect(MONGO_URL);
-// }
-
-
-
-
   
-  const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+  //const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+ const dbUrl =process.env.ATLASDB_URL;
   
    mongoose.set("strictQuery", true);
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
 const session = require("express-session");
+const MongoStore = require('connect-mongo');
 const ExpressError = require("./utils/ExpressError.js");
 
 
@@ -52,7 +37,8 @@ const userRouter=require("./routes/user.js");
 
 
  async function main() {
-    await mongoose.connect(MONGO_URL);
+    //await mongoose.connect(MONGO_URL);
+      await mongoose.connect(dbUrl);
   }
 
 
@@ -64,7 +50,27 @@ app.use (express.urlencoded({extended: true}));
 app.use(methodOverride ("_method"));
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join (__dirname,"/public")));
+
+
+
+// const store= MongoStore.create({
+//  mongoUrl:dbUrl,
+//   crypto: {
+//     secret: "mysupersecretcode"
+//   },
+//   touchAfter: 24 * 3600,
+// });
+
+// store.on("error",(err)=>{
+//   console.log("Error in MONGO SESSION STORE",err);
+// });
+
+
+
+
+
 const sessionOption = {
+  // store,
   secret: "mysupersecretcode",
   resave: false,
   saveUninitialized: true,
@@ -75,6 +81,9 @@ const sessionOption = {
   },
 
 }
+
+
+
 app.use(session(sessionOption));
 
 app.use(flash());

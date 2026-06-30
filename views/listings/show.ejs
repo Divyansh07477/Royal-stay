@@ -36,6 +36,8 @@ alt="listing_image">
 </div>
     </div>
 
+
+
  <% if (currentUser && listing.owner && listing.owner.equals(currentUser._id)) { %>
 
 <div class="d-flex gap-3 mt-3 justify-content-space-evenly">
@@ -53,8 +55,22 @@ alt="listing_image">
 
 </div>
 
-<% } %>
+<% } %> 
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -162,7 +178,7 @@ alt="listing_image">
 
 
        
-        <div class="mb-3 mt-3 mj">
+        <div class="mb-3 mt-3 Tony">
           <label for="comment" class="form-label"> Comments</label>
           <textarea name="review[comment]" id="comment" cols="10" rows="5" class="form-control w-100" style= "max-width: 900px;" required></textarea>
    <div class="invalid-feedback">Please sumbit some comments for review</div>
@@ -178,7 +194,7 @@ alt="listing_image">
     <% for (let review of listing.reviews) { %>
     <div class="card col-5 ms-4 mt-3">
    <div class="card-body">
-      <h5 class="card-title">MJ</h5>
+      <h5 class="card-title">Tony</h5>
        <p class="card-text"><%= review.comment %></p>
        <p class="card-text"><%= review.rating %>Star</p>
       
