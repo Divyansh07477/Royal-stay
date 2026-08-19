@@ -892,10 +892,46 @@ body.dark .name{
 
 }
 
-/* Images */
 
-img{
-    max-width:100%;
-    height:auto;
-    display:block;
+/* =========================
+   DESKTOP RESPONSIVE
+========================= */
+
+@media (min-width: 1025px) {
+
+    .filters {
+        margin: 1rem auto 1%;
+        justify-content: center;
+        gap: 2.5rem;
+        width: 90%;
+    }
+
+    .theme-toggle {
+        margin-right: 0;
+    }
+
+    .hero-section {
+        height: 75vh;
+    }
+
+    .hero-section h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-section p {
+        width: 65%;
+    }
+
+    .home-cards {
+        padding: 3rem 2rem;
+    }
+
+    .search-input {
+        width: 290px;
+    }
+
+    .rohit {
+        margin-right: 0;
+        justify-content: center;
+    }
 }
