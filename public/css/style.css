@@ -341,6 +341,7 @@ body{
     font-size: 16px;
      margin-left: 50%;
      margin-top: 10%;
+      border: 1px solid black !important;
 }
 
 .reserve-btn:hover{
@@ -1337,10 +1338,44 @@ body.dark-mode #mjVoiceBtn.mj-listening i {
     color: #000000 !important;
 }
 
+/* RESERVE BUTTON - DARK MODE */
+body.dark-mode .reserve-btn {
+    background-color: red !important;
+    color: white !important;
+    
+}
 
+body.dark-mode .reserve-btn:hover {
+    background-color: white !important;
+    color: #222222 !important;
+   
+}
 
+body.dark-mode .reserve-btn:hover * {
+    color: #222222 !important;
+}
 
+/* REVIEW STARS - DARK MODE */
+body.dark-mode .star-rating label {
+    color: #ccc !important;
+}
 
+body.dark-mode .star-rating input:checked ~ label {
+    color: gold !important;
+}
+
+/* CREATE HOTEL - ADD BUTTON DARK MODE */
+
+body.dark-mode .add-btn {
+    background-color: red !important;
+    color: white !important;
+    border: none !important;
+}
+
+body.dark-mode .add-btn:hover {
+    background-color: #cc0000 !important;
+    color: white !important;
+}
 
 
 
