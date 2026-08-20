@@ -528,8 +528,8 @@ body.dark .menu-btn.dropdown-toggle::after {
     cursor: pointer;
     transition: 0.3s;
     border: none;
-    margin-right: 0%;
-
+  
+    margin-right: -20px
 }
 
 .toggle-ball{
@@ -891,4 +891,460 @@ body.dark .name{
     }
 
 }
+
+
+
+/*mj  */
+
+.mj-voice-btn {
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    margin-left: -25px;
+    background: white;
+    color: black;
+    cursor: pointer;
+    transition: 0.3s;
+ 
+}
+
+ .mj-voice-btn {
+    transform: translateX(9px);
+}
+
+.mj-voice-btn:hover {
+    transform: translateX(9px) scale(1.08);
+}
+
+.mj-listening {
+    background: red;
+    animation: mjPulse 1s infinite;
+}
+
+@keyframes mjPulse {
+    0% {
+        box-shadow: red 0 0 0 0;
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(220, 53, 69, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+    }
+}
+
+/* =====================================================
+   DARK MODE - COMPLETE
+===================================================== */
+
+/* ---------- BODY ---------- */
+
+body.dark-mode {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+body.dark-mode .navbar {
+    background-color: #111111 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .navbar-brand,
+body.dark-mode .navbar .nav-link,
+body.dark-mode .navbar span,
+body.dark-mode .navbar i,
+body.dark-mode .navbar button {
+    color: #ffffff !important;
+}
+
+
+/* Navbar hover */
+
+body.dark-mode .navbar .nav-link:hover {
+    color: #cccccc !important;
+}
+
+
+/* search btn */
+.pragati:hover {
+    background-color: whitesmoke !important;
+    color: #222222 !important;
+    transition: 0.3s ease;
+}
+
+.pragati:hover i {
+    color: #222222 !important;
+}
+
+
+
+/* =========================
+   SEARCH BUTTON - DARK MODE
+========================= */
+
+body.dark-mode .pragati {
+    background-color: red !important;
+    color: white !important;
+}
+
+body.dark-mode .pragati i {
+    color: white !important;
+}
+
+body.dark-mode .pragati:hover {
+    background-color: whitesmoke !important;
+    color: #222222 !important;
+    transition: 0.3s ease;
+}
+
+body.dark-mode .pragati:hover i {
+    color: #222222 !important;
+}
+
+body.dark-mode .pragati:hover span {
+    color: #222222 !important;
+}
+
+/* =====================================================
+   SEARCH BAR - ALWAYS WHITE
+===================================================== */
+
+body.dark-mode .search-bar,
+body.dark-mode .search-input,
+body.dark-mode .search-container,
+body.dark-mode form[role="search"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+body.dark-mode .search-bar input,
+body.dark-mode .search-input,
+body.dark-mode .search-container input,
+body.dark-mode form[role="search"] input {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-color: #dddddd !important;
+}
+
+body.dark-mode .search-bar input::placeholder,
+body.dark-mode .search-input::placeholder,
+body.dark-mode .search-container input::placeholder,
+body.dark-mode form[role="search"] input::placeholder {
+    color: #666666 !important;
+}
+/* =====================================================
+   DARK MODE TOGGLE
+===================================================== */
+
+/* Toggle ke icons */
+
+body.dark-mode .theme-toggle .sun i,
+body.dark-mode .theme-toggle .moon i {
+    color: #000000 !important;
+
+    
+}
+
+/* Toggle ball */
+
+body.dark-mode .toggle-ball {
+    background-color: #000000 !important;
+}
+
+.theme-toggle {
+    transform: translateX(35px);
+}
+/* =====================================================
+   DROPDOWN
+===================================================== */
+
+body.dark-mode .dropdown-menu {
+    background-color: #1e1e1e !important;
+    border-color: #333333 !important;
+}
+
+body.dark-mode .dropdown-item {
+    color: white !important;
+}
+
+/* =====================================================
+   MENU ICON - DARK MODE
+===================================================== */
+
+body.dark-mode .menu-btn {
+    color: white !important;
+    background-color:#1d1c1c !important;
+   border:1px solid white !important;
+}
+
+body.dark-mode .menu-btn i {
+    color: white !important;
+}
+
+
+
+/* =====================================================
+   ALL TEXT
+===================================================== */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode span,
+body.dark-mode label,
+body.dark-mode li,
+body.dark-mode strong,
+body.dark-mode small {
+    color: #ffffff !important;
+}
+
+
+/* =====================================================
+   LINKS
+===================================================== */
+
+body.dark-mode a {
+    color: #ffffff !important;
+}
+
+body.dark-mode a:hover {
+    color: #cccccc !important;
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+body.dark-mode .card {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+}
+
+body.dark-mode .card-title,
+body.dark-mode .card-text {
+    color: #ffffff !important;
+}
+
+
+/* =====================================================
+   INPUT / FORM
+===================================================== */
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+    border: 1px solid #555555 !important;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+    color: #aaaaaa !important;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+body.dark-mode .btn {
+    color: #ffffff !important;
+}
+
+body.dark-mode .btn-dark {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .btn-light {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+    border-color: #555555 !important;
+}
+
+/* category */
+
+
+body.dark-mode a[href*="/listings/category/"] i {
+    color: #ffffff !important;
+}
+
+
+/* DROPDOWN ARROW - DARK MODE */
+
+body.dark-mode .menu-btn.dropdown-toggle::after {
+    color: #ffffff !important;
+    border-top-color: #ffffff !important;
+}
+
+
+
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+body.dark-mode footer {
+    background-color: #111111 !important;
+    color:#111111  !important;
+}
+
+body.dark-mode footer a,
+body.dark-mode footer p,
+body.dark-mode footer span,
+body.dark-mode footer i {
+    color: black !important;
+}
+
+
+/* =====================================================
+   LISTING PAGE
+===================================================== */
+
+body.dark-mode .listing-card,
+body.dark-mode .listing-item {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+body.dark-mode table {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode th,
+body.dark-mode td {
+    color: #ffffff !important;
+    border-color: #444444 !important;
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+body.dark-mode .modal-content {
+    background-color: #1e1e1e !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .modal-title,
+body.dark-mode .modal-body,
+body.dark-mode .modal-footer {
+    color: #ffffff !important;
+}
+
+
+/* =====================================================
+   ALERT
+===================================================== */
+body.dark-mode .alert {
+   
+    color: black !important;
+    border-color: #444444 !important;
+}
+
+
+/* =====================================================
+   HR
+===================================================== */
+
+body.dark-mode hr {
+    border-color: #555555 !important;
+}
+
+
+/* =====================================================
+   BOOTSTRAP TEXT OVERRIDE
+===================================================== */
+
+body.dark-mode .text-dark {
+    color: #ffffff !important;
+}
+
+body.dark-mode .text-black {
+    color: #ffffff !important;
+}
+
+body.dark-mode .text-muted {
+    color: #bbbbbb !important;
+}
+
+
+/* =====================================================
+   BOOTSTRAP BACKGROUND OVERRIDE
+===================================================== */
+
+body.dark-mode .bg-white {
+    background-color: #1e1e1e !important;
+}
+
+body.dark-mode .bg-light {
+    background-color: #1e1e1e !important;
+}
+
+
+/* =====================================================
+   MJ VOICE BUTTON - DARK MODE
+===================================================== */
+
+body.dark-mode #mjVoiceBtn {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    border-color: #ffffff !important;
+}
+
+body.dark-mode #mjVoiceBtn i {
+    color: #000000 !important;
+}
+
+/* Agar button ke andar span/icon hai */
+
+body.dark-mode #mjVoiceBtn span {
+    color: #000000 !important;
+}
+
+
+/* MJ listening state */
+
+body.dark-mode #mjVoiceBtn.mj-listening {
+    background-color: #f5f5f5 !important;
+    color: #000000 !important;
+}
+
+body.dark-mode #mjVoiceBtn.mj-listening i {
+    color: #000000 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
 
