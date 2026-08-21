@@ -1142,7 +1142,7 @@ function speakMJ(text) {
 
 
     utterance.lang =
-        "hi-IN";
+        "en-IN";
 
 
     // Fast voice
