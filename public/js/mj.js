@@ -401,12 +401,37 @@ if (
     console.log("MJ: CREATOR COMMAND DETECTED");
 
     speakMJ(
-        "Mujhe Divyansh Singh ne build kiya hai. Woh mere Boss aur Royal Stay ke owner hain agar yakin na ho to niche last me footer me boss ka name likha he."
+        "Mujhe Divyansh Singh ne build kiya hai. Woh mere Boss hain"
     );
 
     return true;
 }
 
+//divyansh introduction
+if (
+    text.includes("divyansh singh") ||
+    text.includes("divyansh kaun") ||
+    text.includes("divyansh kon") ||
+     text.includes("divyansh kon he") ||
+    text.includes(" kya tum divyansh ko jaan ti ho") ||
+    text.includes("who is divyansh") ||
+    text.includes("who is divyansh singh")
+    
+) {
+    return "Divyansh mere boss hain. Main unki MJ hoon, AI assistant,";
+}
+
+
+
+// OWNER
+if (
+    text.includes("royal stay ka owner kon he") ||
+    text.includes("royal stay kiska hotel he") ||
+    text.includes("royal stay kiska hai") ||
+    text.includes("royal stay ka malik kon hai")
+) {
+    return "Royal Stay ke owner Divyansh Singh hain.";
+}
     // =================================================
     // HOME
     // =================================================
