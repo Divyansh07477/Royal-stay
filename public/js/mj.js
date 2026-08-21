@@ -406,31 +406,49 @@ if (
 
     return true;
 }
+// =====================================================
+// DIVYANSH INTRODUCTION
 
-//divyansh introduction
+
 if (
     text.includes("divyansh singh") ||
     text.includes("divyansh kaun") ||
     text.includes("divyansh kon") ||
-     text.includes("divyansh kon he") ||
-    text.includes(" kya tum divyansh ko jaan ti ho") ||
+    text.includes("divyansh kon he") ||
+    text.includes("kya tum divyansh ko jaanti ho") ||
+    text.includes("kya tum divyansh ko janti ho") ||
     text.includes("who is divyansh") ||
     text.includes("who is divyansh singh")
-    
 ) {
-    return "Divyansh mere boss hain. Main unki MJ hoon, AI assistant,";
+
+    console.log("MJ: DIVYANSH COMMAND DETECTED");
+
+    speakMJ(
+        "Divyansh mere boss hain. Main unki MJ hoon, AI assistant, aur woh Royal Stay ke owner hain."
+    );
+
+    return true;
 }
 
-
-
-// OWNER
+//owner
 if (
     text.includes("royal stay ka owner kon he") ||
+    text.includes("royal stay ka owner kaun hai") ||
     text.includes("royal stay kiska hotel he") ||
     text.includes("royal stay kiska hai") ||
-    text.includes("royal stay ka malik kon hai")
+    text.includes("royal stay ka malik kon hai") ||
+    text.includes("royal stay ka malik kaun hai") ||
+    text.includes("who is the owner of royal stay") ||
+    text.includes("who owns royal stay")
 ) {
-    return "Royal Stay ke owner Divyansh Singh hain.";
+
+    console.log("MJ: ROYAL STAY OWNER COMMAND DETECTED");
+
+    speakMJ(
+        "Royal Stay ke owner Divyansh Singh hain."
+    );
+
+    return true;
 }
     // =================================================
     // HOME
