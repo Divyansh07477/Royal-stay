@@ -370,6 +370,43 @@ function handleDirectCommand(message) {
     );
 
 
+
+// =====================================================
+// MJ CREATOR / BUILDER
+// =====================================================
+
+if (
+    text === "तुम्हें बिल्ड किसने किया" ||
+    text === "तुम्हे बिल्ड किसने किया" ||
+    text === "तुमको बिल्ड किसने किया" ||
+
+    text.includes("बिल्ड किसने किया") ||
+    text.includes("किसने बनाया") ||
+    text.includes("किसने बिल्ड किया") ||
+    text.includes("किसने बिल्ड") ||
+
+    text.includes("tumhe kisne banaya") ||
+    text.includes("tumhe kisne build kiya") ||
+    text.includes("tumko kisne banaya") ||
+    text.includes("tumko kisne build kiya") ||
+    text.includes("kisne banaya") ||
+    text.includes("kisne build kiya") ||
+    text.includes("kisne build kya") ||
+
+    text.includes("who built you") ||
+    text.includes("who made you") ||
+    text.includes("who created you")
+) {
+
+    console.log("MJ: CREATOR COMMAND DETECTED");
+
+    speakMJ(
+        "Mujhe Divyansh Singh ne build kiya hai. Woh mere Boss aur Royal Stay ke owner hain agar yakin na ho to niche last me footer me boss ka name likha he."
+    );
+
+    return true;
+}
+
     // =================================================
     // HOME
     // =================================================
@@ -532,7 +569,7 @@ function handleDirectCommand(message) {
     if (
 
         text.includes("dark mode") ||
-        text.includes("dark mod") ||
+        text.includes("dark mode") ||
         text.includes("darkmode") ||
         text.includes("dark karo") ||
         text.includes("dark kar do") ||
@@ -1036,7 +1073,7 @@ function speakMJ(text) {
     // Fast voice
 
     utterance.rate =
-        1.08;
+        1.15;
 
     utterance.pitch =
         1.08;
@@ -1056,6 +1093,7 @@ function speakMJ(text) {
                 .getVoices();
 
     }
+
 
 
     // =================================================

@@ -47,7 +47,7 @@ const userRouter=require("./routes/user.js");
 
 
  async function main() {
-   // await mongoose.connect(MONGO_URL);
+   //await mongoose.connect(MONGO_URL);
       await mongoose.connect(dbUrl);
   }
 
