@@ -369,7 +369,33 @@ function handleDirectCommand(message) {
         text
     );
 
+// =====================================================
+// CREATE HOTEL
+// =====================================================
 
+if (
+    text.includes("create hotel") ||
+      text.includes("create hotel open kar") ||
+    text.includes("create a hotel") ||
+    text.includes("new hotel") ||
+    text.includes("hotel create karo") ||
+    text.includes("hotel banana hai") ||
+    text.includes("hotel banao") ||
+    text.includes("hotel create karna hai") ||
+    text.includes("naya hotel banao") ||
+    text.includes("naya hotel create karo")
+) {
+
+    console.log("MJ: CREATE HOTEL COMMAND DETECTED");
+
+    speakMJ(
+        "Create Hotel page open kar rahi hoon, Boss."
+    );
+
+    window.location.href = "/listings/new";
+
+    return true;
+}
 
 // =====================================================
 // MJ CREATOR / BUILDER
@@ -626,7 +652,9 @@ if (
         console.log(
             "MJ: Dark Mode"
         );
-
+   speakMJ(
+            "Ji Boss, dark mode chalu kar rahi hoon."
+        );
         setDarkModeFromMJ(true);
 
         return true;
@@ -655,7 +683,11 @@ if (
             "MJ: Light Mode"
         );
 
-        setDarkModeFromMJ(false);
+        speakMJ(
+            "Ji Boss, light mode chalu kar rahi hoon."
+        );
+
+        setLightModeFromMJ(true);
 
         return true;
     }
