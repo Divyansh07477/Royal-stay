@@ -368,14 +368,13 @@ function handleDirectCommand(message) {
         "MJ Direct Command:",
         text
     );
-
 // =====================================================
 // CREATE HOTEL
 // =====================================================
 
 if (
     text.includes("create hotel") ||
-      text.includes("create hotel open kar") ||
+    text.includes("create hotel open kar") ||
     text.includes("create a hotel") ||
     text.includes("new hotel") ||
     text.includes("hotel create karo") ||
@@ -383,7 +382,18 @@ if (
     text.includes("hotel banao") ||
     text.includes("hotel create karna hai") ||
     text.includes("naya hotel banao") ||
-    text.includes("naya hotel create karo")
+    text.includes("naya hotel create karo") ||
+
+    // Hindi
+    text.includes("होटल बनाओ") ||
+    text.includes("होटल बनाना है") ||
+    text.includes("होटल क्रिएट करो") ||
+    text.includes("होटल क्रिएट करना है") ||
+    text.includes("नया होटल बनाओ") ||
+    text.includes("नया होटल बनाना है") ||
+    text.includes("नया होटल क्रिएट करो") ||
+    text.includes("क्रिएट होटल खोलो") ||
+    text.includes("क्रिएट होटल ओपन करो")
 ) {
 
     console.log("MJ: CREATE HOTEL COMMAND DETECTED");
@@ -396,7 +406,6 @@ if (
 
     return true;
 }
-
 // =====================================================
 // MJ CREATOR / BUILDER
 // =====================================================
@@ -431,10 +440,9 @@ if (
     );
 
     return true;
-}
-// =====================================================
+}// =====================================================
 // DIVYANSH INTRODUCTION
-
+// =====================================================
 
 if (
     text.includes("divyansh singh") ||
@@ -443,6 +451,14 @@ if (
     text.includes("divyansh kon he") ||
     text.includes("kya tum divyansh ko jaanti ho") ||
     text.includes("kya tum divyansh ko janti ho") ||
+
+    // Hindi
+    text.includes("दिव्यांश सिंह कौन है") ||
+    text.includes("दिव्यांश कौन है") ||
+    text.includes("दिव्यांश कौन हैं") ||
+    text.includes("क्या तुम दिव्यांश को जानती हो") ||
+    text.includes("क्या तुम दिव्यांश सिंह को जानती हो") ||
+
     text.includes("who is divyansh") ||
     text.includes("who is divyansh singh")
 ) {
@@ -456,7 +472,11 @@ if (
     return true;
 }
 
-//owner
+
+// =====================================================
+// ROYAL STAY OWNER
+// =====================================================
+
 if (
     text.includes("royal stay ka owner kon he") ||
     text.includes("royal stay ka owner kaun hai") ||
@@ -464,6 +484,14 @@ if (
     text.includes("royal stay kiska hai") ||
     text.includes("royal stay ka malik kon hai") ||
     text.includes("royal stay ka malik kaun hai") ||
+
+    // Hindi
+    text.includes("रॉयल स्टे का मालिक कौन है") ||
+    text.includes("रॉयल स्टे का ओनर कौन है") ||
+    text.includes("रॉयल स्टे किसका होटल है") ||
+    text.includes("रॉयल स्टे किसका है") ||
+    text.includes("रॉयल स्टे का मालिक कौन हैं") ||
+
     text.includes("who is the owner of royal stay") ||
     text.includes("who owns royal stay")
 ) {
@@ -1142,7 +1170,7 @@ function speakMJ(text) {
 
 
     utterance.lang =
-        "en-IN";
+        "hi-IN";
 
 
     // Fast voice
