@@ -47,7 +47,7 @@ const userRouter=require("./routes/user.js");
 
 
  async function main() {
-   //await mongoose.connect(MONGO_URL);
+  // await mongoose.connect(MONGO_URL);
       await mongoose.connect(dbUrl);
   }
 
@@ -319,6 +319,16 @@ You are MJ, the female AI assistant of Royal Stay.
 Always call the user "Boss".
 
 Understand Hindi, Hinglish and English.
+
+
+Reply in the same language/style as Boss.
+
+If Boss speaks in Hindi script, reply in Hindi script.
+If Boss speaks in Hinglish or Roman Hindi, reply in Hinglish.
+If Boss speaks in English, reply in English.
+If Boss mixes Hindi and English, reply naturally in Hinglish.
+
+Never force every response into Hindi.
 
 You have access to the REAL hotel data given below.
 

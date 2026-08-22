@@ -7,7 +7,7 @@ const SpeechRecognition =
 let recognition;
 let isListening = false;
 let voices = [];
-
+console.log("Current User:", currentUser);
 
 // =====================================================
 // LOAD VOICES
@@ -133,7 +133,7 @@ if (SpeechRecognition && mjButton) {
         new SpeechRecognition();
 
     recognition.lang =
-        "hi-IN";
+        "en-IN";
 
     recognition.continuous =
         false;
@@ -449,9 +449,10 @@ if (
     text.includes("divyansh kaun") ||
     text.includes("divyansh kon") ||
     text.includes("divyansh kon he") ||
+    text.includes("MJ mera naam kya hai") ||
     text.includes("kya tum divyansh ko jaanti ho") ||
     text.includes("kya tum divyansh ko janti ho") ||
-
+    text.includes(" Tum Divyansh ko janti ho") ||
     // Hindi
     text.includes("दिव्यांश सिंह कौन है") ||
     text.includes("दिव्यांश कौन है") ||
@@ -473,6 +474,38 @@ if (
 }
 
 
+//MJ boss
+if (
+    text.includes("tumhare boss ka naam kya hai") ||
+    text.includes("tumhare boss ka name kya hai") ||
+    text.includes("tumhare boss kaun hai") ||
+    text.includes("tumhare boss kon hai") ||
+    text.includes("who is your boss") ||
+    text.includes("what is your boss name")
+) {
+
+    console.log("MJ: BOSS NAME COMMAND DETECTED");
+
+    if (
+        currentUser &&
+        currentUser.toLowerCase() === "divyansh"
+    ) {
+
+        speakMJ(
+            "Aap hi mere boss ho, Divyansh."
+        );
+
+    } else {
+
+        speakMJ(
+            "Mere boss Divyansh Singh hain."
+        );
+
+    }
+
+    return true;
+}
+
 // =====================================================
 // ROYAL STAY OWNER
 // =====================================================
@@ -485,6 +518,16 @@ if (
     text.includes("royal stay ka malik kon hai") ||
     text.includes("royal stay ka malik kaun hai") ||
 
+    // Company
+    text.includes("is company ka owner kon he") ||
+    text.includes("is company ka owner kaun hai") ||
+    text.includes("is company ka malik kon hai") ||
+    text.includes("is company ka malik kaun hai") ||
+    text.includes("company ka owner kon hai") ||
+    text.includes("company ka owner kaun hai") ||
+    text.includes("company ka malik kon hai") ||
+    text.includes("company ka malik kaun hai") ||
+
     // Hindi
     text.includes("रॉयल स्टे का मालिक कौन है") ||
     text.includes("रॉयल स्टे का ओनर कौन है") ||
@@ -492,11 +535,16 @@ if (
     text.includes("रॉयल स्टे किसका है") ||
     text.includes("रॉयल स्टे का मालिक कौन हैं") ||
 
+    text.includes("इस कंपनी का मालिक कौन है") ||
+    text.includes("इस कंपनी का ओनर कौन है") ||
+
     text.includes("who is the owner of royal stay") ||
     text.includes("who owns royal stay")
 ) {
 
-    console.log("MJ: ROYAL STAY OWNER COMMAND DETECTED");
+    console.log(
+        "MJ: ROYAL STAY OWNER COMMAND DETECTED"
+    );
 
     speakMJ(
         "Royal Stay ke owner Divyansh Singh hain."
@@ -898,6 +946,15 @@ async function askMJ(message) {
     );
 
 
+    const languageInstruction = `
+Reply in the same language/style as the user.
+If the user speaks Hindi, reply in Hindi.
+If the user speaks Hinglish or Roman Hindi, reply in Hinglish.
+If the user speaks English, reply in English.
+If the user mixes Hindi and English, reply naturally in Hinglish.
+`;
+
+
     try {
 
         const response =
@@ -914,14 +971,9 @@ async function askMJ(message) {
 
                     },
 
-                    body:
-                        JSON.stringify({
-
-                            message:
-                                message
-
-                        })
-
+                   body: JSON.stringify({
+    message: languageInstruction + "\n\nUser: " + message
+})
                 }
             );
 
@@ -1170,7 +1222,7 @@ function speakMJ(text) {
 
 
     utterance.lang =
-        "hi-IN";
+        "en-IN";
 
 
     // Fast voice
