@@ -20,8 +20,8 @@ const methodOverride = require("method-override");
 const { cloudinary } = require("./cloudConfig.js");
  mongoose.set("strictQuery", true);
   
-  //const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
-   const dbUrl =process.env.ATLASDB_URL;
+  const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+// const dbUrl =process.env.ATLASDB_URL;
   
    mongoose.set("strictQuery", true);
 const ejsMate = require("ejs-mate");
@@ -47,8 +47,8 @@ const userRouter=require("./routes/user.js");
 
 
  async function main() {
-  // await mongoose.connect(MONGO_URL);
-      await mongoose.connect(dbUrl);
+   await mongoose.connect(MONGO_URL);
+  //    await mongoose.connect(dbUrl);
   }
 
 

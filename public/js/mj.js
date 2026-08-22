@@ -621,7 +621,7 @@ if (
         );
 
         speakMJ(
-            "Ji Boss, signup page open kar rahi hoon."
+            "Ji Boss, signup page open kar diya."
         );
 
         setTimeout(
@@ -659,7 +659,7 @@ if (
         );
 
         speakMJ(
-            "Ji Boss, login page open kar rahi hoon."
+            "Ji Boss, login page open kar diya."
         );
 
         setTimeout(
@@ -690,7 +690,7 @@ if (
     ) {
 
         speakMJ(
-            "Ji Boss, logout kar rahi hoon."
+            "Ji Boss, logout kar diya."
         );
 
         setTimeout(
@@ -714,6 +714,8 @@ if (
     if (
 
         text.includes("dark mode") ||
+
+
         text.includes("dark mode") ||
         text.includes("darkmode") ||
         text.includes("dark karo") ||
@@ -729,9 +731,9 @@ if (
             "MJ: Dark Mode"
         );
    speakMJ(
-            "Ji Boss, dark mode chalu kar rahi hoon."
+            "Ji Boss, dark mode chalu ho gya."
         );
-        setDarkModeFromMJ(true);
+        applyDarkMode(true);
 
         return true;
     }
@@ -760,10 +762,10 @@ if (
         );
 
         speakMJ(
-            "Ji Boss, light mode chalu kar rahi hoon."
+            "Ji Boss, light mode chalu ho gya."
         );
 
-        setLightModeFromMJ(true);
+        applyDarkMode(false);
 
         return true;
     }
@@ -794,7 +796,7 @@ if (
         );
 
         speakMJ(
-            "Ji Boss, saare hotels open kar rahi hoon."
+            "Ji Boss, saare hotels open kar diya."
         );
 
         setTimeout(
