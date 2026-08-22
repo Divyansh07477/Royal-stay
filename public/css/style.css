@@ -1379,6 +1379,22 @@ body.dark-mode .add-btn:hover {
 
 
 
+/* EDIT BUTTON - ALWAYS RED */
+
+.edit-btn {
+    background-color: red !important;
+    border-color: red !important;
+    color: white !important;
+}
+
+body.dark-mode .edit-btn {
+    background-color: red !important;
+    border-color: red !important;
+    color: white !important;
+}
+
+
+
 
 
 
