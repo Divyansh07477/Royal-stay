@@ -209,9 +209,15 @@ app.post("/api/mj", async (req, res) => {
         ) {
             detectedCategory = "Pools";
         }
-        else if (lowerMessage.includes("arctic")) {
-            detectedCategory = "Arctic";
-        }
+       
+else if (
+    lowerMessage.includes("arctic") ||
+    lowerMessage.includes("snowfall") ||
+    lowerMessage.includes("snow") ||
+    lowerMessage.includes("ice")
+) {
+    detectedCategory = "Arctic";
+}
 
 
         // ==========================================
