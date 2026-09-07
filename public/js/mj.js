@@ -7,7 +7,9 @@ const SpeechRecognition =
 let recognition;
 let isListening = false;
 let voices = [];
+
 console.log("Current User:", currentUser);
+
 
 // =====================================================
 // LOAD VOICES
@@ -368,6 +370,8 @@ function handleDirectCommand(message) {
         "MJ Direct Command:",
         text
     );
+
+
 // =====================================================
 // CREATE HOTEL
 // =====================================================
@@ -406,6 +410,8 @@ if (
 
     return true;
 }
+
+
 // =====================================================
 // MJ CREATOR / BUILDER
 // =====================================================
@@ -440,7 +446,10 @@ if (
     );
 
     return true;
-}// =====================================================
+}
+
+
+// =====================================================
 // DIVYANSH INTRODUCTION
 // =====================================================
 
@@ -453,6 +462,7 @@ if (
     text.includes("kya tum divyansh ko jaanti ho") ||
     text.includes("kya tum divyansh ko janti ho") ||
     text.includes(" Tum Divyansh ko janti ho") ||
+
     // Hindi
     text.includes("दिव्यांश सिंह कौन है") ||
     text.includes("दिव्यांश कौन है") ||
@@ -474,7 +484,10 @@ if (
 }
 
 
-//MJ boss
+// =====================================================
+// MJ BOSS
+// =====================================================
+
 if (
     text.includes("tumhare boss ka naam kya hai") ||
     text.includes("tumhare boss ka name kya hai") ||
@@ -505,6 +518,7 @@ if (
 
     return true;
 }
+
 
 // =====================================================
 // ROYAL STAY OWNER
@@ -552,387 +566,378 @@ if (
 
     return true;
 }
-    // =================================================
-    // HOME
-    // =================================================
 
-    if (
 
-        text === "home" ||
-        text.includes("home kholo") ||
-        text.includes("home open") ||
-        text.includes("home page") ||
-        text.includes("ghar kholo") ||
-        text.includes("homepage") ||
-        text.includes("होम") ||
-        text.includes("होम खोलो")
+// =================================================
+// HOME
+// =================================================
 
-    ) {
+if (
+
+    text === "home" ||
+    text.includes("home kholo") ||
+    text.includes("home open") ||
+    text.includes("home page") ||
+    text.includes("ghar kholo") ||
+    text.includes("homepage") ||
+    text.includes("होम") ||
+    text.includes("होम खोलो")
+
+) {
+
+    console.log(
+        "MJ: Opening Home"
+    );
+
+    speakMJ(
+        "Ji Boss, home page open kar rahi hoon."
+    );
+
+    setTimeout(
+        () => {
+
+            window.location.href =
+                "/";
+
+        },
+        100
+    );
+
+    return true;
+}
+
+
+// =================================================
+// SIGNUP
+// =================================================
+
+if (
+
+    text.includes("signup") ||
+    text.includes("sign up") ||
+    text.includes("sign-up") ||
+    text.includes("register") ||
+    text.includes("registration") ||
+    text.includes("signup kholo") ||
+    text.includes("signup open") ||
+    text.includes("sign up kholo") ||
+    text.includes("register kholo") ||
+    text.includes("naya account") ||
+    text.includes("new account") ||
+    text.includes("account banana") ||
+    text.includes("account banao") ||
+    text.includes("साइन अप") ||
+    text.includes("साइनअप") ||
+    text.includes("रजिस्टर")
+
+) {
+
+    console.log(
+        "MJ: Opening Signup"
+    );
+
+    speakMJ(
+        "Ji Boss, signup page open kar diya."
+    );
+
+    setTimeout(
+        () => {
+
+            window.location.href =
+                "/signup";
+
+        },
+        100
+    );
+
+    return true;
+}
+
+
+// =================================================
+// LOGIN
+// =================================================
+
+if (
+
+    text.includes("login") ||
+    text.includes("log in") ||
+    text.includes("login kholo") ||
+    text.includes("login open") ||
+    text.includes("login page") ||
+    text.includes("लॉगिन") ||
+    text.includes("लॉग इन")
+
+) {
+
+    console.log(
+        "MJ: Opening Login"
+    );
+
+    speakMJ(
+        "Ji Boss, login page open kar diya."
+    );
+
+    setTimeout(
+        () => {
+
+            window.location.href =
+                "/login";
+
+        },
+        100
+    );
+
+    return true;
+}
+
+
+// =================================================
+// LOGOUT
+// =================================================
+
+if (
+
+    text.includes("logout") ||
+    text.includes("log out") ||
+    text.includes("logout karo") ||
+    text.includes("लॉगआउट")
+
+) {
+
+    speakMJ(
+        "Ji Boss, logout kar diya."
+    );
+
+    setTimeout(
+        () => {
+
+            window.location.href =
+                "/logout";
+
+        },
+        100
+    );
+
+    return true;
+}
+
+
+// =================================================
+// DARK MODE
+// =================================================
+
+if (
+
+    text.includes("dark mode") ||
+
+    text.includes("dark mode") ||
+    text.includes("darkmode") ||
+    text.includes("dark karo") ||
+    text.includes("dark kar do") ||
+    text.includes("dark on") ||
+    text.includes("dark chalu") ||
+    text.includes("डार्क मोड") ||
+    text.includes("डार्क करो")
+
+) {
+
+    console.log(
+        "MJ: Dark Mode"
+    );
+
+    speakMJ(
+        "Ji Boss, dark mode chalu ho gya."
+    );
+
+    applyDarkMode(true);
+
+    return true;
+}
+
+
+// =================================================
+// LIGHT MODE
+// =================================================
+
+if (
+
+    text.includes("light mode") ||
+    text.includes("light mod") ||
+    text.includes("lightmode") ||
+    text.includes("light karo") ||
+    text.includes("light kar do") ||
+    text.includes("light on") ||
+    text.includes("light chalu") ||
+    text.includes("लाइट मोड") ||
+    text.includes("लाइट करो")
+
+) {
+
+    console.log(
+        "MJ: Light Mode"
+    );
+
+    speakMJ(
+        "Ji Boss, light mode chalu ho gya."
+    );
+
+    applyDarkMode(false);
+
+    return true;
+}
+
+
+// =================================================
+// ALL HOTELS
+// =================================================
+
+if (
+
+    text.includes("all hotels") ||
+    text.includes("all hotel") ||
+    text.includes("all listings") ||
+    text.includes("saare hotels") ||
+    text.includes("sare hotels") ||
+    text.includes("sab hotels") ||
+    text.includes("sabhi hotels") ||
+    text.includes("saare hotel") ||
+    text.includes("sare hotel") ||
+    text.includes("सारे होटल") ||
+    text.includes("सभी होटल")
+
+) {
+
+    console.log(
+        "MJ: Opening All Hotels"
+    );
+
+    speakMJ(
+        "Ji Boss, saare hotels open kar diya."
+    );
+
+    setTimeout(
+        () => {
+
+            window.location.href =
+                "/listings";
+
+        },
+        100
+    );
+
+    return true;
+}
+
+
+// =================================================
+// CATEGORY
+// =================================================
+
+const categories = {
+
+    // Mountains
+    mountain: "Mountains",
+    mountains: "Mountains",
+
+    // Beaches
+    beach: "Beaches",
+    beaches: "Beaches",
+
+    // Camping
+    camping: "Camping",
+
+    // Castle
+    castle: "Castle",
+
+    // Luxury
+    luxury: "Luxury",
+
+    // Pools
+    pool: "Pools",
+    pools: "Pools",
+
+    // Arctic / Snowfall
+    arctic: "Arctic",
+    snowfall: "Arctic",
+    snow: "Arctic",
+    snowy: "Arctic",
+    ice: "Arctic",
+    icy: "Arctic"
+};
+
+
+for (const key in categories) {
+
+    if (text.includes(key)) {
+
+        const category =
+            categories[key];
 
         console.log(
-            "MJ: Opening Home"
+            "MJ: Opening category:",
+            category
         );
 
         speakMJ(
-            "Ji Boss, home page open kar rahi hoon."
+            `Ji Boss, ${category} category open kar rahi hoon.`
         );
 
-        setTimeout(
-            () => {
-
-                window.location.href =
-                    "/";
-
-            },
-            300
-        );
+        // Immediately open category
+        window.location.href =
+            `/listings/category/${encodeURIComponent(category)}`;
 
         return true;
     }
+}
 
 
-    // =================================================
-    // SIGNUP
-    // =================================================
+// =================================================
+// SEARCH / HOTEL NAME
+// =================================================
 
-    if (
+const searchWords = [
 
-        text.includes("signup") ||
-        text.includes("sign up") ||
-        text.includes("sign-up") ||
-        text.includes("register") ||
-        text.includes("registration") ||
-        text.includes("signup kholo") ||
-        text.includes("signup open") ||
-        text.includes("sign up kholo") ||
-        text.includes("register kholo") ||
-        text.includes("naya account") ||
-        text.includes("new account") ||
-        text.includes("account banana") ||
-        text.includes("account banao") ||
-        text.includes("साइन अप") ||
-        text.includes("साइनअप") ||
-        text.includes("रजिस्टर")
+    "search",
+    "find",
+    "show",
+    "dikhao",
+    "dikhाओ",
+    "khojo",
+    "dhundo",
+    "dhundho",
+    "hotel",
+    "listing",
+    "होटल",
+    "ढूंढो",
+    "दिखाओ"
 
-    ) {
+];
 
-        console.log(
-            "MJ: Opening Signup"
-        );
 
-        speakMJ(
-            "Ji Boss, signup page open kar diya."
-        );
+const isSearchCommand =
+    searchWords.some(
+        word =>
+            text.includes(word)
+    );
 
-        setTimeout(
-            () => {
 
-                window.location.href =
-                    "/signup";
+if (isSearchCommand) {
 
-            },
-            300
-        );
+    console.log(
+        "MJ: Hotel Search:",
+        message
+    );
 
-        return true;
-    }
+    // Gemini actual hotel/category identify karega
 
+    askMJ(message);
 
-    // =================================================
-    // LOGIN
-    // =================================================
+    return true;
+}
 
-    if (
 
-        text.includes("login") ||
-        text.includes("log in") ||
-        text.includes("login kholo") ||
-        text.includes("login open") ||
-        text.includes("login page") ||
-        text.includes("लॉगिन") ||
-        text.includes("लॉग इन")
-
-    ) {
-
-        console.log(
-            "MJ: Opening Login"
-        );
-
-        speakMJ(
-            "Ji Boss, login page open kar diya."
-        );
-
-        setTimeout(
-            () => {
-
-                window.location.href =
-                    "/login";
-
-            },
-            300
-        );
-
-        return true;
-    }
-
-
-    // =================================================
-    // LOGOUT
-    // =================================================
-
-    if (
-
-        text.includes("logout") ||
-        text.includes("log out") ||
-        text.includes("logout karo") ||
-        text.includes("लॉगआउट")
-
-    ) {
-
-        speakMJ(
-            "Ji Boss, logout kar diya."
-        );
-
-        setTimeout(
-            () => {
-
-                window.location.href =
-                    "/logout";
-
-            },
-            300
-        );
-
-        return true;
-    }
-
-
-    // =================================================
-    // DARK MODE
-    // =================================================
-
-    if (
-
-        text.includes("dark mode") ||
-
-
-        text.includes("dark mode") ||
-        text.includes("darkmode") ||
-        text.includes("dark karo") ||
-        text.includes("dark kar do") ||
-        text.includes("dark on") ||
-        text.includes("dark chalu") ||
-        text.includes("डार्क मोड") ||
-        text.includes("डार्क करो")
-
-    ) {
-
-        console.log(
-            "MJ: Dark Mode"
-        );
-   speakMJ(
-            "Ji Boss, dark mode chalu ho gya."
-        );
-        applyDarkMode(true);
-
-        return true;
-    }
-
-
-    // =================================================
-    // LIGHT MODE
-    // =================================================
-
-    if (
-
-        text.includes("light mode") ||
-        text.includes("light mod") ||
-        text.includes("lightmode") ||
-        text.includes("light karo") ||
-        text.includes("light kar do") ||
-        text.includes("light on") ||
-        text.includes("light chalu") ||
-        text.includes("लाइट मोड") ||
-        text.includes("लाइट करो")
-
-    ) {
-
-        console.log(
-            "MJ: Light Mode"
-        );
-
-        speakMJ(
-            "Ji Boss, light mode chalu ho gya."
-        );
-
-        applyDarkMode(false);
-
-        return true;
-    }
-
-
-    // =================================================
-    // ALL HOTELS
-    // =================================================
-
-    if (
-
-        text.includes("all hotels") ||
-        text.includes("all hotel") ||
-        text.includes("all listings") ||
-        text.includes("saare hotels") ||
-        text.includes("sare hotels") ||
-        text.includes("sab hotels") ||
-        text.includes("sabhi hotels") ||
-        text.includes("saare hotel") ||
-        text.includes("sare hotel") ||
-        text.includes("सारे होटल") ||
-        text.includes("सभी होटल")
-
-    ) {
-
-        console.log(
-            "MJ: Opening All Hotels"
-        );
-
-        speakMJ(
-            "Ji Boss, saare hotels open kar diya."
-        );
-
-        setTimeout(
-            () => {
-
-                window.location.href =
-                    "/listings";
-
-            },
-            300
-        );
-
-        return true;
-    }
-
-
-    // =================================================
-    // CATEGORY
-    // =================================================
-
-    const categories = {
-
-        mountain:
-            "Mountains",
-
-        mountains:
-            "Mountains",
-
-        beach:
-            "Beaches",
-
-        beaches:
-            "Beaches",
-
-        camping:
-            "Camping",
-
-        castle:
-            "Castle",
-
-        luxury:
-            "Luxury",
-
-        pool:
-            "Pools",
-
-        pools:
-            "Pools",
-
-        arctic:
-            "Arctic"
-
-    };
-
-
-    for (
-        const key in categories
-    ) {
-
-        if (
-            text.includes(key)
-        ) {
-
-            const category =
-                categories[key];
-
-            console.log(
-                "MJ: Opening category:",
-                category
-            );
-
-            speakMJ(
-                `Ji Boss, ${category} category open kar rahi hoon.`
-            );
-
-            setTimeout(
-                () => {
-
-                    window.location.href =
-                        `/listings/category/${category}`;
-
-                },
-                300
-            );
-
-            return true;
-        }
-    }
-
-
-    // =================================================
-    // SEARCH / HOTEL NAME
-    // =================================================
-
-    const searchWords = [
-
-        "search",
-        "find",
-        "show",
-        "dikhao",
-        "dikhाओ",
-        "khojo",
-        "dhundo",
-        "dhundho",
-        "hotel",
-        "listing",
-        "होटल",
-        "ढूंढो",
-        "दिखाओ"
-
-    ];
-
-
-    const isSearchCommand =
-        searchWords.some(
-            word =>
-                text.includes(word)
-        );
-
-
-    if (isSearchCommand) {
-
-        console.log(
-            "MJ: Hotel Search:",
-            message
-        );
-
-        // Gemini actual hotel/category identify karega
-
-        askMJ(message);
-
-        return true;
-    }
-
-
-    return false;
+return false;
 }
 
 
@@ -973,9 +978,12 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
 
                     },
 
-                   body: JSON.stringify({
-    message: languageInstruction + "\n\nUser: " + message
-})
+                    body: JSON.stringify({
+                        message:
+                            languageInstruction +
+                            "\n\nUser: " +
+                            message
+                    })
                 }
             );
 
@@ -1038,7 +1046,7 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
                         data.url;
 
                 },
-                300
+                100
             );
 
             return;
@@ -1126,7 +1134,7 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
                         data.url;
 
                 },
-                300
+                100
             );
 
             return;
@@ -1250,7 +1258,6 @@ function speakMJ(text) {
                 .getVoices();
 
     }
-
 
 
     // =================================================
@@ -1381,7 +1388,7 @@ window.addEventListener(
                 );
 
             },
-            400
+            100
         );
 
     }
