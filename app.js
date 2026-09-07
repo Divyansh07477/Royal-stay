@@ -209,16 +209,18 @@ app.post("/api/mj", async (req, res) => {
         ) {
             detectedCategory = "Pools";
         }
-       
 else if (
     lowerMessage.includes("arctic") ||
     lowerMessage.includes("snowfall") ||
+    lowerMessage.includes("snow fall") ||
     lowerMessage.includes("snow") ||
-    lowerMessage.includes("ice")
+    lowerMessage.includes("snowy") ||
+    lowerMessage.includes("snowy") ||
+    lowerMessage.includes("ice") ||
+    lowerMessage.includes("icy")
 ) {
     detectedCategory = "Arctic";
 }
-
 
         // ==========================================
         // 2. GET ALL HOTELS

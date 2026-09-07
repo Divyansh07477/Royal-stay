@@ -104,8 +104,6 @@ function loadDarkMode() {
     }
 }
 
-
-// Load immediately
 loadDarkMode();
 
 
@@ -159,6 +157,7 @@ if (SpeechRecognition && mjButton) {
                 return;
             }
 
+            // Stop previous speech immediately
             window.speechSynthesis.cancel();
 
             try {
@@ -364,7 +363,8 @@ function handleDirectCommand(message) {
     const text =
         message
             .toLowerCase()
-            .trim();
+            .trim()
+            .replace(/\s+/g, " ");
 
     console.log(
         "MJ Direct Command:",
@@ -377,6 +377,7 @@ function handleDirectCommand(message) {
 // =====================================================
 
 if (
+
     text.includes("create hotel") ||
     text.includes("create hotel open kar") ||
     text.includes("create a hotel") ||
@@ -388,7 +389,6 @@ if (
     text.includes("naya hotel banao") ||
     text.includes("naya hotel create karo") ||
 
-    // Hindi
     text.includes("होटल बनाओ") ||
     text.includes("होटल बनाना है") ||
     text.includes("होटल क्रिएट करो") ||
@@ -398,15 +398,23 @@ if (
     text.includes("नया होटल क्रिएट करो") ||
     text.includes("क्रिएट होटल खोलो") ||
     text.includes("क्रिएट होटल ओपन करो")
+
 ) {
 
-    console.log("MJ: CREATE HOTEL COMMAND DETECTED");
+    console.log(
+        "MJ: CREATE HOTEL COMMAND DETECTED"
+    );
 
     speakMJ(
         "Create Hotel page open kar rahi hoon, Boss."
     );
 
-    window.location.href = "/listings/new";
+    setTimeout(() => {
+
+        window.location.href =
+            "/listings/new";
+
+    }, 100);
 
     return true;
 }
@@ -417,6 +425,7 @@ if (
 // =====================================================
 
 if (
+
     text === "तुम्हें बिल्ड किसने किया" ||
     text === "तुम्हे बिल्ड किसने किया" ||
     text === "तुमको बिल्ड किसने किया" ||
@@ -437,12 +446,15 @@ if (
     text.includes("who built you") ||
     text.includes("who made you") ||
     text.includes("who created you")
+
 ) {
 
-    console.log("MJ: CREATOR COMMAND DETECTED");
+    console.log(
+        "MJ: CREATOR COMMAND DETECTED"
+    );
 
     speakMJ(
-        "Mujhe Divyansh Singh ne build kiya hai. Woh mere Boss hain"
+        "Mujhe Divyansh Singh ne build kiya hai. Woh mere Boss hain."
     );
 
     return true;
@@ -454,6 +466,7 @@ if (
 // =====================================================
 
 if (
+
     text.includes("divyansh singh") ||
     text.includes("divyansh kaun") ||
     text.includes("divyansh kon") ||
@@ -461,9 +474,8 @@ if (
     text.includes("MJ mera naam kya hai") ||
     text.includes("kya tum divyansh ko jaanti ho") ||
     text.includes("kya tum divyansh ko janti ho") ||
-    text.includes(" Tum Divyansh ko janti ho") ||
+    text.includes("tum divyansh ko janti ho") ||
 
-    // Hindi
     text.includes("दिव्यांश सिंह कौन है") ||
     text.includes("दिव्यांश कौन है") ||
     text.includes("दिव्यांश कौन हैं") ||
@@ -472,9 +484,12 @@ if (
 
     text.includes("who is divyansh") ||
     text.includes("who is divyansh singh")
+
 ) {
 
-    console.log("MJ: DIVYANSH COMMAND DETECTED");
+    console.log(
+        "MJ: DIVYANSH COMMAND DETECTED"
+    );
 
     speakMJ(
         "Divyansh mere boss hain. Main unki MJ hoon, AI assistant, aur woh Royal Stay ke owner hain."
@@ -489,15 +504,19 @@ if (
 // =====================================================
 
 if (
+
     text.includes("tumhare boss ka naam kya hai") ||
     text.includes("tumhare boss ka name kya hai") ||
     text.includes("tumhare boss kaun hai") ||
     text.includes("tumhare boss kon hai") ||
     text.includes("who is your boss") ||
     text.includes("what is your boss name")
+
 ) {
 
-    console.log("MJ: BOSS NAME COMMAND DETECTED");
+    console.log(
+        "MJ: BOSS NAME COMMAND DETECTED"
+    );
 
     if (
         currentUser &&
@@ -513,7 +532,6 @@ if (
         speakMJ(
             "Mere boss Divyansh Singh hain."
         );
-
     }
 
     return true;
@@ -525,6 +543,7 @@ if (
 // =====================================================
 
 if (
+
     text.includes("royal stay ka owner kon he") ||
     text.includes("royal stay ka owner kaun hai") ||
     text.includes("royal stay kiska hotel he") ||
@@ -532,7 +551,6 @@ if (
     text.includes("royal stay ka malik kon hai") ||
     text.includes("royal stay ka malik kaun hai") ||
 
-    // Company
     text.includes("is company ka owner kon he") ||
     text.includes("is company ka owner kaun hai") ||
     text.includes("is company ka malik kon hai") ||
@@ -542,7 +560,6 @@ if (
     text.includes("company ka malik kon hai") ||
     text.includes("company ka malik kaun hai") ||
 
-    // Hindi
     text.includes("रॉयल स्टे का मालिक कौन है") ||
     text.includes("रॉयल स्टे का ओनर कौन है") ||
     text.includes("रॉयल स्टे किसका होटल है") ||
@@ -554,6 +571,7 @@ if (
 
     text.includes("who is the owner of royal stay") ||
     text.includes("who owns royal stay")
+
 ) {
 
     console.log(
@@ -593,15 +611,12 @@ if (
         "Ji Boss, home page open kar rahi hoon."
     );
 
-    setTimeout(
-        () => {
+    setTimeout(() => {
 
-            window.location.href =
-                "/";
+        window.location.href =
+            "/";
 
-        },
-        100
-    );
+    }, 100);
 
     return true;
 }
@@ -640,15 +655,12 @@ if (
         "Ji Boss, signup page open kar diya."
     );
 
-    setTimeout(
-        () => {
+    setTimeout(() => {
 
-            window.location.href =
-                "/signup";
+        window.location.href =
+            "/signup";
 
-        },
-        100
-    );
+    }, 100);
 
     return true;
 }
@@ -678,15 +690,12 @@ if (
         "Ji Boss, login page open kar diya."
     );
 
-    setTimeout(
-        () => {
+    setTimeout(() => {
 
-            window.location.href =
-                "/login";
+        window.location.href =
+            "/login";
 
-        },
-        100
-    );
+    }, 100);
 
     return true;
 }
@@ -709,15 +718,12 @@ if (
         "Ji Boss, logout kar diya."
     );
 
-    setTimeout(
-        () => {
+    setTimeout(() => {
 
-            window.location.href =
-                "/logout";
+        window.location.href =
+            "/logout";
 
-        },
-        100
-    );
+    }, 100);
 
     return true;
 }
@@ -728,8 +734,6 @@ if (
 // =================================================
 
 if (
-
-    text.includes("dark mode") ||
 
     text.includes("dark mode") ||
     text.includes("darkmode") ||
@@ -746,11 +750,11 @@ if (
         "MJ: Dark Mode"
     );
 
+    applyDarkMode(true);
+
     speakMJ(
         "Ji Boss, dark mode chalu ho gya."
     );
-
-    applyDarkMode(true);
 
     return true;
 }
@@ -778,11 +782,11 @@ if (
         "MJ: Light Mode"
     );
 
+    applyDarkMode(false);
+
     speakMJ(
         "Ji Boss, light mode chalu ho gya."
     );
-
-    applyDarkMode(false);
 
     return true;
 }
@@ -816,15 +820,12 @@ if (
         "Ji Boss, saare hotels open kar diya."
     );
 
-    setTimeout(
-        () => {
+    setTimeout(() => {
 
-            window.location.href =
-                "/listings";
+        window.location.href =
+            "/listings";
 
-        },
-        100
-    );
+    }, 100);
 
     return true;
 }
@@ -860,6 +861,7 @@ const categories = {
     // Arctic / Snowfall
     arctic: "Arctic",
     snowfall: "Arctic",
+    "snow fall": "Arctic",
     snow: "Arctic",
     snowy: "Arctic",
     ice: "Arctic",
@@ -883,9 +885,12 @@ for (const key in categories) {
             `Ji Boss, ${category} category open kar rahi hoon.`
         );
 
-        // Immediately open category
-        window.location.href =
-            `/listings/category/${encodeURIComponent(category)}`;
+        setTimeout(() => {
+
+            window.location.href =
+                `/listings/category/${encodeURIComponent(category)}`;
+
+        }, 100);
 
         return true;
     }
@@ -930,7 +935,6 @@ if (isSearchCommand) {
     );
 
     // Gemini actual hotel/category identify karega
-
     askMJ(message);
 
     return true;
@@ -972,10 +976,8 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
                     method: "POST",
 
                     headers: {
-
                         "Content-Type":
                             "application/json"
-
                     },
 
                     body: JSON.stringify({
@@ -1038,16 +1040,12 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
                 );
             }
 
+            setTimeout(() => {
 
-            setTimeout(
-                () => {
+                window.location.href =
+                    data.url;
 
-                    window.location.href =
-                        data.url;
-
-                },
-                100
-            );
+            }, 100);
 
             return;
         }
@@ -1127,15 +1125,12 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
             // OPEN HOTEL
             // =================================================
 
-            setTimeout(
-                () => {
+            setTimeout(() => {
 
-                    window.location.href =
-                        data.url;
+                window.location.href =
+                    data.url;
 
-                },
-                100
-            );
+            }, 100);
 
             return;
         }
@@ -1212,7 +1207,7 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
 
 
 // =====================================================
-// MJ SPEAK
+// MJ SPEAK - FAST
 // =====================================================
 
 function speakMJ(text) {
@@ -1222,6 +1217,7 @@ function speakMJ(text) {
     }
 
 
+    // Stop previous speech immediately
     window.speechSynthesis.cancel();
 
 
@@ -1235,10 +1231,12 @@ function speakMJ(text) {
         "en-IN";
 
 
-    // Fast voice
+    // =================================================
+    // FAST SPEECH
+    // =================================================
 
     utterance.rate =
-        1.15;
+        1.25;
 
     utterance.pitch =
         1.08;
@@ -1343,6 +1341,10 @@ function speakMJ(text) {
         );
     }
 
+
+    // =================================================
+    // START SPEECH IMMEDIATELY
+    // =================================================
 
     window.speechSynthesis.speak(
         utterance
