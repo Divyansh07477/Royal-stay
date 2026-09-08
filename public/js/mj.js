@@ -8,7 +8,15 @@ let recognition;
 let isListening = false;
 let voices = [];
 
+// =====================================================
+// CURRENT CATEGORY
+// =====================================================
+
+let currentCategory =
+    sessionStorage.getItem("mjCurrentCategory") || null;
+
 console.log("Current User:", currentUser);
+console.log("MJ Current Category:", currentCategory);
 
 
 // =====================================================
@@ -49,7 +57,9 @@ function applyDarkMode(isDark) {
         );
 
         if (darkModeToggle) {
+
             darkModeToggle.checked = true;
+
         }
 
     } else {
@@ -62,7 +72,9 @@ function applyDarkMode(isDark) {
         );
 
         if (darkModeToggle) {
+
             darkModeToggle.checked = false;
+
         }
     }
 }
@@ -101,6 +113,7 @@ function loadDarkMode() {
     } else {
 
         applyDarkMode(false);
+
     }
 }
 
@@ -203,6 +216,7 @@ if (SpeechRecognition && mjButton) {
             console.log(
                 "MJ microphone started"
             );
+
         };
 
 
@@ -308,6 +322,7 @@ if (SpeechRecognition && mjButton) {
                 speakMJ(
                     "Sorry Boss, voice mein thodi problem aa gayi."
                 );
+
             }
 
         };
@@ -372,576 +387,855 @@ function handleDirectCommand(message) {
     );
 
 
-// =====================================================
-// CREATE HOTEL
-// =====================================================
-
-if (
-
-    text.includes("create hotel") ||
-    text.includes("create hotel open kar") ||
-    text.includes("create a hotel") ||
-    text.includes("new hotel") ||
-    text.includes("hotel create karo") ||
-    text.includes("hotel banana hai") ||
-    text.includes("hotel banao") ||
-    text.includes("hotel create karna hai") ||
-    text.includes("naya hotel banao") ||
-    text.includes("naya hotel create karo") ||
-
-    text.includes("होटल बनाओ") ||
-    text.includes("होटल बनाना है") ||
-    text.includes("होटल क्रिएट करो") ||
-    text.includes("होटल क्रिएट करना है") ||
-    text.includes("नया होटल बनाओ") ||
-    text.includes("नया होटल बनाना है") ||
-    text.includes("नया होटल क्रिएट करो") ||
-    text.includes("क्रिएट होटल खोलो") ||
-    text.includes("क्रिएट होटल ओपन करो")
-
-) {
-
-    console.log(
-        "MJ: CREATE HOTEL COMMAND DETECTED"
-    );
-
-    speakMJ(
-        "Create Hotel page open kar rahi hoon, Boss."
-    );
-
-    setTimeout(() => {
-
-        window.location.href =
-            "/listings/new";
-
-    }, 100);
-
-    return true;
-}
-
-
-// =====================================================
-// MJ CREATOR / BUILDER
-// =====================================================
-
-if (
-
-    text === "तुम्हें बिल्ड किसने किया" ||
-    text === "तुम्हे बिल्ड किसने किया" ||
-    text === "तुमको बिल्ड किसने किया" ||
-
-    text.includes("बिल्ड किसने किया") ||
-    text.includes("किसने बनाया") ||
-    text.includes("किसने बिल्ड किया") ||
-    text.includes("किसने बिल्ड") ||
-
-    text.includes("tumhe kisne banaya") ||
-    text.includes("tumhe kisne build kiya") ||
-    text.includes("tumko kisne banaya") ||
-    text.includes("tumko kisne build kiya") ||
-    text.includes("kisne banaya") ||
-    text.includes("kisne build kiya") ||
-    text.includes("kisne build kya") ||
-
-    text.includes("who built you") ||
-    text.includes("who made you") ||
-    text.includes("who created you")
-
-) {
-
-    console.log(
-        "MJ: CREATOR COMMAND DETECTED"
-    );
-
-    speakMJ(
-        "Mujhe Divyansh Singh ne build kiya hai. Woh mere Boss hain."
-    );
-
-    return true;
-}
-
-
-// =====================================================
-// DIVYANSH INTRODUCTION
-// =====================================================
-
-if (
-
-    text.includes("divyansh singh") ||
-    text.includes("divyansh kaun") ||
-    text.includes("divyansh kon") ||
-    text.includes("divyansh kon he") ||
-    text.includes("MJ mera naam kya hai") ||
-    text.includes("kya tum divyansh ko jaanti ho") ||
-    text.includes("kya tum divyansh ko janti ho") ||
-    text.includes("tum divyansh ko janti ho") ||
-
-    text.includes("दिव्यांश सिंह कौन है") ||
-    text.includes("दिव्यांश कौन है") ||
-    text.includes("दिव्यांश कौन हैं") ||
-    text.includes("क्या तुम दिव्यांश को जानती हो") ||
-    text.includes("क्या तुम दिव्यांश सिंह को जानती हो") ||
-
-    text.includes("who is divyansh") ||
-    text.includes("who is divyansh singh")
-
-) {
-
-    console.log(
-        "MJ: DIVYANSH COMMAND DETECTED"
-    );
-
-    speakMJ(
-        "Divyansh mere boss hain. Main unki MJ hoon, AI assistant, aur woh Royal Stay ke owner hain."
-    );
-
-    return true;
-}
-
-
-// =====================================================
-// MJ BOSS
-// =====================================================
-
-if (
-
-    text.includes("tumhare boss ka naam kya hai") ||
-    text.includes("tumhare boss ka name kya hai") ||
-    text.includes("tumhare boss kaun hai") ||
-    text.includes("tumhare boss kon hai") ||
-    text.includes("who is your boss") ||
-    text.includes("what is your boss name")
-
-) {
-
-    console.log(
-        "MJ: BOSS NAME COMMAND DETECTED"
-    );
+    // =====================================================
+    // CREATE HOTEL
+    // =====================================================
 
     if (
-        currentUser &&
-        currentUser.toLowerCase() === "divyansh"
+
+        text.includes("create hotel") ||
+        text.includes("create hotel open kar") ||
+        text.includes("create a hotel") ||
+        text.includes("new hotel") ||
+        text.includes("hotel create karo") ||
+        text.includes("hotel banana hai") ||
+        text.includes("hotel banao") ||
+        text.includes("hotel create karna hai") ||
+        text.includes("naya hotel banao") ||
+        text.includes("naya hotel create karo") ||
+
+        text.includes("होटल बनाओ") ||
+        text.includes("होटल बनाना है") ||
+        text.includes("होटल क्रिएट करो") ||
+        text.includes("होटल क्रिएट करना है") ||
+        text.includes("नया होटल बनाओ") ||
+        text.includes("नया होटल बनाना है") ||
+        text.includes("नया होटल क्रिएट करो") ||
+        text.includes("क्रिएट होटल खोलो") ||
+        text.includes("क्रिएट होटल ओपन करो")
+
     ) {
 
-        speakMJ(
-            "Aap hi mere boss ho, Divyansh."
-        );
-
-    } else {
-
-        speakMJ(
-            "Mere boss Divyansh Singh hain."
-        );
-    }
-
-    return true;
-}
-
-
-// =====================================================
-// ROYAL STAY OWNER
-// =====================================================
-
-if (
-
-    text.includes("royal stay ka owner kon he") ||
-    text.includes("royal stay ka owner kaun hai") ||
-    text.includes("royal stay kiska hotel he") ||
-    text.includes("royal stay kiska hai") ||
-    text.includes("royal stay ka malik kon hai") ||
-    text.includes("royal stay ka malik kaun hai") ||
-
-    text.includes("is company ka owner kon he") ||
-    text.includes("is company ka owner kaun hai") ||
-    text.includes("is company ka malik kon hai") ||
-    text.includes("is company ka malik kaun hai") ||
-    text.includes("company ka owner kon hai") ||
-    text.includes("company ka owner kaun hai") ||
-    text.includes("company ka malik kon hai") ||
-    text.includes("company ka malik kaun hai") ||
-
-    text.includes("रॉयल स्टे का मालिक कौन है") ||
-    text.includes("रॉयल स्टे का ओनर कौन है") ||
-    text.includes("रॉयल स्टे किसका होटल है") ||
-    text.includes("रॉयल स्टे किसका है") ||
-    text.includes("रॉयल स्टे का मालिक कौन हैं") ||
-
-    text.includes("इस कंपनी का मालिक कौन है") ||
-    text.includes("इस कंपनी का ओनर कौन है") ||
-
-    text.includes("who is the owner of royal stay") ||
-    text.includes("who owns royal stay")
-
-) {
-
-    console.log(
-        "MJ: ROYAL STAY OWNER COMMAND DETECTED"
-    );
-
-    speakMJ(
-        "Royal Stay ke owner Divyansh Singh hain."
-    );
-
-    return true;
-}
-
-
-// =================================================
-// HOME
-// =================================================
-
-if (
-
-    text === "home" ||
-    text.includes("home kholo") ||
-    text.includes("home open") ||
-    text.includes("home page") ||
-    text.includes("ghar kholo") ||
-    text.includes("homepage") ||
-    text.includes("होम") ||
-    text.includes("होम खोलो")
-
-) {
-
-    console.log(
-        "MJ: Opening Home"
-    );
-
-    speakMJ(
-        "Ji Boss, home page open kar rahi hoon."
-    );
-
-    setTimeout(() => {
-
-        window.location.href =
-            "/";
-
-    }, 100);
-
-    return true;
-}
-
-
-// =================================================
-// SIGNUP
-// =================================================
-
-if (
-
-    text.includes("signup") ||
-    text.includes("sign up") ||
-    text.includes("sign-up") ||
-    text.includes("register") ||
-    text.includes("registration") ||
-    text.includes("signup kholo") ||
-    text.includes("signup open") ||
-    text.includes("sign up kholo") ||
-    text.includes("register kholo") ||
-    text.includes("naya account") ||
-    text.includes("new account") ||
-    text.includes("account banana") ||
-    text.includes("account banao") ||
-    text.includes("साइन अप") ||
-    text.includes("साइनअप") ||
-    text.includes("रजिस्टर")
-
-) {
-
-    console.log(
-        "MJ: Opening Signup"
-    );
-
-    speakMJ(
-        "Ji Boss, signup page open kar diya."
-    );
-
-    setTimeout(() => {
-
-        window.location.href =
-            "/signup";
-
-    }, 100);
-
-    return true;
-}
-
-
-// =================================================
-// LOGIN
-// =================================================
-
-if (
-
-    text.includes("login") ||
-    text.includes("log in") ||
-    text.includes("login kholo") ||
-    text.includes("login open") ||
-    text.includes("login page") ||
-    text.includes("लॉगिन") ||
-    text.includes("लॉग इन")
-
-) {
-
-    console.log(
-        "MJ: Opening Login"
-    );
-
-    speakMJ(
-        "Ji Boss, login page open kar diya."
-    );
-
-    setTimeout(() => {
-
-        window.location.href =
-            "/login";
-
-    }, 100);
-
-    return true;
-}
-
-
-// =================================================
-// LOGOUT
-// =================================================
-
-if (
-
-    text.includes("logout") ||
-    text.includes("log out") ||
-    text.includes("logout karo") ||
-    text.includes("लॉगआउट")
-
-) {
-
-    speakMJ(
-        "Ji Boss, logout kar diya."
-    );
-
-    setTimeout(() => {
-
-        window.location.href =
-            "/logout";
-
-    }, 100);
-
-    return true;
-}
-
-
-// =================================================
-// DARK MODE
-// =================================================
-
-if (
-
-    text.includes("dark mode") ||
-    text.includes("darkmode") ||
-    text.includes("dark karo") ||
-    text.includes("dark kar do") ||
-    text.includes("dark on") ||
-    text.includes("dark chalu") ||
-    text.includes("डार्क मोड") ||
-    text.includes("डार्क करो")
-
-) {
-
-    console.log(
-        "MJ: Dark Mode"
-    );
-
-    applyDarkMode(true);
-
-    speakMJ(
-        "Ji Boss, dark mode chalu ho gya."
-    );
-
-    return true;
-}
-
-
-// =================================================
-// LIGHT MODE
-// =================================================
-
-if (
-
-    text.includes("light mode") ||
-    text.includes("light mod") ||
-    text.includes("lightmode") ||
-    text.includes("light karo") ||
-    text.includes("light kar do") ||
-    text.includes("light on") ||
-    text.includes("light chalu") ||
-    text.includes("लाइट मोड") ||
-    text.includes("लाइट करो")
-
-) {
-
-    console.log(
-        "MJ: Light Mode"
-    );
-
-    applyDarkMode(false);
-
-    speakMJ(
-        "Ji Boss, light mode chalu ho gya."
-    );
-
-    return true;
-}
-
-
-// =================================================
-// ALL HOTELS
-// =================================================
-
-if (
-
-    text.includes("all hotels") ||
-    text.includes("all hotel") ||
-    text.includes("all listings") ||
-    text.includes("saare hotels") ||
-    text.includes("sare hotels") ||
-    text.includes("sab hotels") ||
-    text.includes("sabhi hotels") ||
-    text.includes("saare hotel") ||
-    text.includes("sare hotel") ||
-    text.includes("सारे होटल") ||
-    text.includes("सभी होटल")
-
-) {
-
-    console.log(
-        "MJ: Opening All Hotels"
-    );
-
-    speakMJ(
-        "Ji Boss, saare hotels open kar diya."
-    );
-
-    setTimeout(() => {
-
-        window.location.href =
-            "/listings";
-
-    }, 100);
-
-    return true;
-}
-
-
-// =================================================
-// CATEGORY
-// =================================================
-
-const categories = {
-
-    // Mountains
-    mountain: "Mountains",
-    mountains: "Mountains",
-
-    // Beaches
-    beach: "Beaches",
-    beaches: "Beaches",
-
-    // Camping
-    camping: "Camping",
-
-    // Castle
-    castle: "Castle",
-
-    // Luxury
-    luxury: "Luxury",
-
-    // Pools
-    pool: "Pools",
-    pools: "Pools",
-
-    // Arctic / Snowfall
-    arctic: "Arctic",
-    snowfall: "Arctic",
-    "snow fall": "Arctic",
-    snow: "Arctic",
-    snowy: "Arctic",
-    ice: "Arctic",
-    icy: "Arctic"
-};
-
-
-for (const key in categories) {
-
-    if (text.includes(key)) {
-
-        const category =
-            categories[key];
-
         console.log(
-            "MJ: Opening category:",
-            category
+            "MJ: CREATE HOTEL COMMAND DETECTED"
         );
 
         speakMJ(
-            `Ji Boss, ${category} category open kar rahi hoon.`
+            "Create Hotel page open kar rahi hoon, Boss."
         );
 
         setTimeout(() => {
 
             window.location.href =
-                `/listings/category/${encodeURIComponent(category)}`;
+                "/listings/new";
 
         }, 100);
 
         return true;
     }
+
+
+    // =====================================================
+    // MJ CREATOR / BUILDER
+    // =====================================================
+
+    if (
+
+        text === "तुम्हें बिल्ड किसने किया" ||
+        text === "तुम्हे बिल्ड किसने किया" ||
+        text === "तुमको बिल्ड किसने किया" ||
+
+        text.includes("बिल्ड किसने किया") ||
+        text.includes("किसने बनाया") ||
+        text.includes("किसने बिल्ड किया") ||
+        text.includes("किसने बिल्ड") ||
+
+        text.includes("tumhe kisne banaya") ||
+        text.includes("tumhe kisne build kiya") ||
+        text.includes("tumko kisne banaya") ||
+        text.includes("tumko kisne build kiya") ||
+        text.includes("kisne banaya") ||
+        text.includes("kisne build kiya") ||
+        text.includes("kisne build kya") ||
+
+        text.includes("who built you") ||
+        text.includes("who made you") ||
+        text.includes("who created you")
+
+    ) {
+
+        console.log(
+            "MJ: CREATOR COMMAND DETECTED"
+        );
+
+        speakMJ(
+            "Mujhe Divyansh Singh ne build kiya hai. Woh mere Boss hain."
+        );
+
+        return true;
+    }
+
+
+    // =====================================================
+    // DIVYANSH INTRODUCTION
+    // =====================================================
+
+    if (
+
+        text.includes("divyansh singh") ||
+        text.includes("divyansh kaun") ||
+        text.includes("divyansh kon") ||
+        text.includes("divyansh kon he") ||
+        text.includes("MJ mera naam kya hai") ||
+        text.includes("kya tum divyansh ko jaanti ho") ||
+        text.includes("kya tum divyansh ko janti ho") ||
+        text.includes("tum divyansh ko janti ho") ||
+
+        text.includes("दिव्यांश सिंह कौन है") ||
+        text.includes("दिव्यांश कौन है") ||
+        text.includes("दिव्यांश कौन हैं") ||
+        text.includes("क्या तुम दिव्यांश को जानती हो") ||
+        text.includes("क्या तुम दिव्यांश सिंह को जानती हो") ||
+
+        text.includes("who is divyansh") ||
+        text.includes("who is divyansh singh")
+
+    ) {
+
+        console.log(
+            "MJ: DIVYANSH COMMAND DETECTED"
+        );
+
+        speakMJ(
+            "Divyansh mere boss hain. Main unki MJ hoon, AI assistant, aur woh Royal Stay ke owner hain."
+        );
+
+        return true;
+    }
+
+
+    // =====================================================
+    // MJ BOSS
+    // =====================================================
+
+    if (
+
+        text.includes("tumhare boss ka naam kya hai") ||
+        text.includes("tumhare boss ka name kya hai") ||
+        text.includes("tumhare boss kaun hai") ||
+        text.includes("tumhare boss kon hai") ||
+        text.includes("who is your boss") ||
+        text.includes("what is your boss name")
+
+    ) {
+
+        console.log(
+            "MJ: BOSS NAME COMMAND DETECTED"
+        );
+
+        if (
+            currentUser &&
+            currentUser.toLowerCase() === "divyansh"
+        ) {
+
+            speakMJ(
+                "Aap hi mere boss ho, Divyansh."
+            );
+
+        } else {
+
+            speakMJ(
+                "Mere boss Divyansh Singh hain."
+            );
+
+        }
+
+        return true;
+    }
+
+
+    // =====================================================
+    // ROYAL STAY OWNER
+    // =====================================================
+
+    if (
+
+        text.includes("royal stay ka owner kon he") ||
+        text.includes("royal stay ka owner kaun hai") ||
+        text.includes("royal stay kiska hotel he") ||
+        text.includes("royal stay kiska hai") ||
+        text.includes("royal stay ka malik kon hai") ||
+        text.includes("royal stay ka malik kaun hai") ||
+
+        text.includes("is company ka owner kon he") ||
+        text.includes("is company ka owner kaun hai") ||
+        text.includes("is company ka malik kon hai") ||
+        text.includes("is company ka malik kaun hai") ||
+        text.includes("company ka owner kon hai") ||
+        text.includes("company ka owner kaun hai") ||
+        text.includes("company ka malik kon hai") ||
+        text.includes("company ka malik kaun hai") ||
+
+        text.includes("रॉयल स्टे का मालिक कौन है") ||
+        text.includes("रॉयल स्टे का ओनर कौन है") ||
+        text.includes("रॉयल स्टे किसका होटल है") ||
+        text.includes("रॉयल स्टे किसका है") ||
+        text.includes("रॉयल स्टे का मालिक कौन हैं") ||
+
+        text.includes("इस कंपनी का मालिक कौन है") ||
+        text.includes("इस कंपनी का ओनर कौन है") ||
+
+        text.includes("who is the owner of royal stay") ||
+        text.includes("who owns royal stay")
+
+    ) {
+
+        console.log(
+            "MJ: ROYAL STAY OWNER COMMAND DETECTED"
+        );
+
+        speakMJ(
+            "Royal Stay ke owner Divyansh Singh hain."
+        );
+
+        return true;
+    }
+
+
+    // =================================================
+    // HOME
+    // =================================================
+
+    if (
+
+        text === "home" ||
+        text.includes("home kholo") ||
+        text.includes("home open") ||
+        text.includes("home page") ||
+        text.includes("ghar kholo") ||
+        text.includes("homepage") ||
+        text.includes("होम") ||
+        text.includes("होम खोलो")
+
+    ) {
+
+        console.log(
+            "MJ: Opening Home"
+        );
+
+        speakMJ(
+            "Ji Boss, home page open kar rahi hoon."
+        );
+
+        setTimeout(() => {
+
+            window.location.href =
+                "/";
+
+        }, 100);
+
+        return true;
+    }
+
+
+    // =================================================
+    // SIGNUP
+    // =================================================
+
+    if (
+
+        text.includes("signup") ||
+        text.includes("sign up") ||
+        text.includes("sign-up") ||
+        text.includes("register") ||
+        text.includes("registration") ||
+        text.includes("signup kholo") ||
+        text.includes("signup open") ||
+        text.includes("sign up kholo") ||
+        text.includes("register kholo") ||
+        text.includes("naya account") ||
+        text.includes("new account") ||
+        text.includes("account banana") ||
+        text.includes("account banao") ||
+        text.includes("साइन अप") ||
+        text.includes("साइनअप") ||
+        text.includes("रजिस्टर")
+
+    ) {
+
+        console.log(
+            "MJ: Opening Signup"
+        );
+
+        speakMJ(
+            "Ji Boss, signup page open kar diya."
+        );
+
+        setTimeout(() => {
+
+            window.location.href =
+                "/signup";
+
+        }, 100);
+
+        return true;
+    }
+
+
+    // =================================================
+    // LOGIN
+    // =================================================
+
+    if (
+
+        text.includes("login") ||
+        text.includes("log in") ||
+        text.includes("login kholo") ||
+        text.includes("login open") ||
+        text.includes("login page") ||
+        text.includes("लॉगिन") ||
+        text.includes("लॉग इन")
+
+    ) {
+
+        console.log(
+            "MJ: Opening Login"
+        );
+
+        speakMJ(
+            "Ji Boss, login page open kar diya."
+        );
+
+        setTimeout(() => {
+
+            window.location.href =
+                "/login";
+
+        }, 100);
+
+        return true;
+    }
+
+
+    // =================================================
+    // LOGOUT
+    // =================================================
+
+    if (
+
+        text.includes("logout") ||
+        text.includes("log out") ||
+        text.includes("logout karo") ||
+        text.includes("लॉगआउट")
+
+    ) {
+
+        speakMJ(
+            "Ji Boss, logout kar diya."
+        );
+
+        setTimeout(() => {
+
+            window.location.href =
+                "/logout";
+
+        }, 100);
+
+        return true;
+    }
+
+
+    // =================================================
+    // DARK MODE
+    // =================================================
+
+    if (
+
+        text.includes("dark mode") ||
+        text.includes("darkmode") ||
+        text.includes("dark karo") ||
+        text.includes("dark kar do") ||
+        text.includes("dark on") ||
+        text.includes("dark chalu") ||
+        text.includes("डार्क मोड") ||
+        text.includes("डार्क करो")
+
+    ) {
+
+        console.log(
+            "MJ: Dark Mode"
+        );
+
+        applyDarkMode(true);
+
+        speakMJ(
+            "Ji Boss, dark mode chalu ho gya."
+        );
+
+        return true;
+    }
+
+
+    // =================================================
+    // LIGHT MODE
+    // =================================================
+
+    if (
+
+        text.includes("light mode") ||
+        text.includes("light mod") ||
+        text.includes("lightmode") ||
+        text.includes("light karo") ||
+        text.includes("light kar do") ||
+        text.includes("light on") ||
+        text.includes("light chalu") ||
+        text.includes("लाइट मोड") ||
+        text.includes("लाइट करो")
+
+    ) {
+
+        console.log(
+            "MJ: Light Mode"
+        );
+
+        applyDarkMode(false);
+
+        speakMJ(
+            "Ji Boss, light mode chalu ho gya."
+        );
+
+        return true;
+    }
+
+
+    // =================================================
+    // ALL HOTELS
+    // =================================================
+
+    if (
+
+        text.includes("all hotels") ||
+        text.includes("all hotel") ||
+        text.includes("all listings") ||
+        text.includes("saare hotels") ||
+        text.includes("sare hotels") ||
+        text.includes("sab hotels") ||
+        text.includes("sabhi hotels") ||
+        text.includes("saare hotel") ||
+        text.includes("sare hotel") ||
+        text.includes("सारे होटल") ||
+        text.includes("सभी होटल")
+
+    ) {
+
+        console.log(
+            "MJ: Opening All Hotels"
+        );
+
+        // Current category clear
+        currentCategory = null;
+
+        sessionStorage.removeItem(
+            "mjCurrentCategory"
+        );
+
+        speakMJ(
+            "Ji Boss, saare hotels open kar diya."
+        );
+
+        setTimeout(() => {
+
+            window.location.href =
+                "/listings";
+
+        }, 100);
+
+        return true;
+    }
+
+
+    // =================================================
+    // CATEGORY
+    // =================================================
+
+    const categories = {
+
+        // Mountains
+        mountain: "Mountains",
+        mountains: "Mountains",
+
+        // Beaches
+        beach: "Beaches",
+        beaches: "Beaches",
+
+        // Camping
+        camping: "Camping",
+
+        // Castle
+        castle: "Castle",
+
+        // Luxury
+        luxury: "Luxury",
+
+        // Pools
+        pool: "Pools",
+        pools: "Pools",
+
+        // Arctic
+        arctic: "Arctic",
+        snowfall: "Arctic",
+        "snow fall": "Arctic",
+        snow: "Arctic",
+        snowy: "Arctic",
+        ice: "Arctic",
+        icy: "Arctic"
+
+    };
+
+
+    for (const key in categories) {
+
+        if (text.includes(key)) {
+
+            const category =
+                categories[key];
+
+            console.log(
+                "MJ: Opening category:",
+                category
+            );
+
+
+            // =================================================
+            // SAVE CURRENT CATEGORY
+            // =================================================
+
+            currentCategory =
+                category;
+
+            sessionStorage.setItem(
+                "mjCurrentCategory",
+                category
+            );
+
+            console.log(
+                "MJ Current Category Saved:",
+                currentCategory
+            );
+
+
+            speakMJ(
+                `Ji Boss, ${category} category open kar rahi hoon.`
+            );
+
+
+            setTimeout(() => {
+
+                window.location.href =
+                    `/listings/category/${encodeURIComponent(category)}`;
+
+            }, 100);
+
+            return true;
+        }
+    }
+
+
+    // =================================================
+    // BEST HOTEL FROM CURRENT CATEGORY
+    // =================================================
+
+    const bestHotelCommand =
+
+        text.includes("best hotel") ||
+        text.includes("best hotels") ||
+        text.includes("best hotel open") ||
+        text.includes("best hotel kholo") ||
+        text.includes("best hotel open kar") ||
+        text.includes("best hotel open kar do") ||
+        text.includes("best hotel dikhao") ||
+        text.includes("best hotel batao") ||
+        text.includes("best hotel isme") ||
+        text.includes("best hotel isme se") ||
+        text.includes("isme se best hotel") ||
+        text.includes("isme ka best hotel") ||
+        text.includes("is category ka best hotel") ||
+        text.includes("best wala hotel") ||
+        text.includes("sabse best hotel") ||
+        text.includes("sabse acha hotel") ||
+        text.includes("sabse achha hotel") ||
+        text.includes("sabse badhiya hotel") ||
+        text.includes("sabse badiya hotel") ||
+
+        text.includes("सबसे अच्छा होटल") ||
+        text.includes("सबसे बढ़िया होटल") ||
+        text.includes("बेस्ट होटल");
+
+
+    if (bestHotelCommand) {
+
+        console.log(
+            "MJ: BEST HOTEL COMMAND DETECTED"
+        );
+
+
+        // =================================================
+        // CATEGORY CHECK
+        // =================================================
+
+        if (!currentCategory) {
+
+            speakMJ(
+                "Boss, pehle koi category open kijiye. Phir main usme se best hotel open kar dungi."
+            );
+
+            return true;
+        }
+
+
+        console.log(
+            "MJ: Finding best hotel from:",
+            currentCategory
+        );
+
+
+        speakMJ(
+            `Ji Boss, ${currentCategory} category ka best hotel open kar rahi hoon.`
+        );
+
+
+        // Backend ko request bhejo
+        awaitBestHotel();
+
+
+        return true;
+    }
+
+
+    // =================================================
+    // SEARCH / HOTEL NAME
+    // =================================================
+
+    const searchWords = [
+
+        "search",
+        "find",
+        "show",
+        "dikhao",
+        "dikhाओ",
+        "khojo",
+        "dhundo",
+        "dhundho",
+        "hotel",
+        "listing",
+        "होटल",
+        "ढूंढो",
+        "दिखाओ"
+
+    ];
+
+
+    const isSearchCommand =
+        searchWords.some(
+            word =>
+                text.includes(word)
+        );
+
+
+    if (isSearchCommand) {
+
+        console.log(
+            "MJ: Hotel Search:",
+            message
+        );
+
+
+        // Gemini actual hotel/category identify karega
+        askMJ(message);
+
+        return true;
+    }
+
+
+    return false;
 }
 
 
-// =================================================
-// SEARCH / HOTEL NAME
-// =================================================
+// =====================================================
+// BEST HOTEL API
+// =====================================================
 
-const searchWords = [
+async function awaitBestHotel() {
 
-    "search",
-    "find",
-    "show",
-    "dikhao",
-    "dikhाओ",
-    "khojo",
-    "dhundo",
-    "dhundho",
-    "hotel",
-    "listing",
-    "होटल",
-    "ढूंढो",
-    "दिखाओ"
+    try {
 
-];
+        console.log(
+            "MJ: Requesting best hotel..."
+        );
+
+        console.log(
+            "MJ Category:",
+            currentCategory
+        );
 
 
-const isSearchCommand =
-    searchWords.some(
-        word =>
-            text.includes(word)
-    );
+        const response =
+            await fetch(
+                "/api/mj",
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+
+                            message:
+                                `Open the best hotel from the ${currentCategory} category.`,
+
+                            currentCategory:
+                                currentCategory
+
+                        })
+
+                }
+            );
 
 
-if (isSearchCommand) {
-
-    console.log(
-        "MJ: Hotel Search:",
-        message
-    );
-
-    // Gemini actual hotel/category identify karega
-    askMJ(message);
-
-    return true;
-}
+        console.log(
+            "Best Hotel HTTP Status:",
+            response.status
+        );
 
 
-return false;
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Best Hotel Response:",
+            data
+        );
+
+
+        if (!response.ok) {
+
+            speakMJ(
+                "Sorry Boss, best hotel find nahi ho paaya."
+            );
+
+            return;
+        }
+
+
+        // =================================================
+        // HOTEL OPEN
+        // =================================================
+
+        if (
+            data.action === "open" &&
+            data.url
+        ) {
+
+
+            // =================================================
+            // SAVE HOTEL INFORMATION
+            // =================================================
+
+            if (data.hotel) {
+
+                const hotel =
+                    data.hotel;
+
+
+                const hotelInfo =
+
+                    `Ji Boss, ${hotel.title}. ` +
+
+                    `Ye ${hotel.category} category ka best hotel hai. ` +
+
+                    `Location ${hotel.location}, ${hotel.country} hai. ` +
+
+                    `Iska price ${hotel.price} hai. ` +
+
+                    `${hotel.description || ""}`;
+
+
+                sessionStorage.setItem(
+                    "mjHotelInfo",
+                    hotelInfo
+                );
+
+            }
+
+            else if (data.reply) {
+
+                sessionStorage.setItem(
+                    "mjHotelInfo",
+                    data.reply
+                );
+
+            }
+
+
+            // =================================================
+            // OPENING MESSAGE
+            // =================================================
+
+            if (data.reply) {
+
+                speakMJ(
+                    data.reply
+                );
+
+            }
+
+
+            // =================================================
+            // OPEN BEST HOTEL
+            // =================================================
+
+            setTimeout(() => {
+
+                window.location.href =
+                    data.url;
+
+            }, 300);
+
+
+            return;
+        }
+
+
+        // =================================================
+        // NO HOTEL FOUND
+        // =================================================
+
+        speakMJ(
+            data.reply ||
+            `Boss, ${currentCategory} category mein koi hotel nahi mila.`
+        );
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "MJ Best Hotel Error:",
+            error
+        );
+
+
+        speakMJ(
+            "Sorry Boss, best hotel find karte time server mein problem aa gayi."
+        );
+
+    }
 }
 
 
@@ -958,11 +1252,21 @@ async function askMJ(message) {
 
 
     const languageInstruction = `
+
 Reply in the same language/style as the user.
-If the user speaks Hindi, reply in Hindi.
-If the user speaks Hinglish or Roman Hindi, reply in Hinglish.
-If the user speaks English, reply in English.
-If the user mixes Hindi and English, reply naturally in Hinglish.
+
+If the user speaks Hindi,
+reply in Hindi.
+
+If the user speaks Hinglish or Roman Hindi,
+reply in Hinglish.
+
+If the user speaks English,
+reply in English.
+
+If the user mixes Hindi and English,
+reply naturally in Hinglish.
+
 `;
 
 
@@ -976,16 +1280,29 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
                     method: "POST",
 
                     headers: {
+
                         "Content-Type":
                             "application/json"
+
                     },
 
-                    body: JSON.stringify({
-                        message:
-                            languageInstruction +
-                            "\n\nUser: " +
-                            message
-                    })
+                    body:
+                        JSON.stringify({
+
+                            message:
+                                languageInstruction +
+                                "\n\nUser: " +
+                                message,
+
+                            // =================================================
+                            // CURRENT CATEGORY BACKEND KO BHEJNA
+                            // =================================================
+
+                            currentCategory:
+                                currentCategory || null
+
+                        })
+
                 }
             );
 
@@ -1033,12 +1350,15 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
 
         ) {
 
+
             if (data.reply) {
 
                 speakMJ(
                     data.reply
                 );
+
             }
+
 
             setTimeout(() => {
 
@@ -1106,6 +1426,7 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
                     "mjHotelInfo",
                     data.reply
                 );
+
             }
 
 
@@ -1118,6 +1439,7 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
                 speakMJ(
                     data.reply
                 );
+
             }
 
 
@@ -1131,6 +1453,7 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
                     data.url;
 
             }, 100);
+
 
             return;
         }
@@ -1150,6 +1473,7 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
                 speakMJ(
                     data.reply
                 );
+
             }
 
             return;
@@ -1170,6 +1494,7 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
                 speakMJ(
                     data.reply
                 );
+
             }
 
             return;
@@ -1185,8 +1510,8 @@ If the user mixes Hindi and English, reply naturally in Hinglish.
             speakMJ(
                 data.reply
             );
-        }
 
+        }
 
     }
 
@@ -1264,6 +1589,7 @@ function speakMJ(text) {
 
     const hindiFemale =
         voices.find(
+
             voice =>
 
                 voice.lang
@@ -1274,6 +1600,7 @@ function speakMJ(text) {
                     .test(
                         voice.name
                     )
+
         );
 
 
@@ -1283,11 +1610,13 @@ function speakMJ(text) {
 
     const hindiVoice =
         voices.find(
+
             voice =>
 
                 voice.lang
                     .toLowerCase()
                     .startsWith("hi")
+
         );
 
 
@@ -1297,12 +1626,14 @@ function speakMJ(text) {
 
     const femaleVoice =
         voices.find(
+
             voice =>
 
                 /female|woman|google/i
                     .test(
                         voice.name
                     )
+
         );
 
 
@@ -1339,6 +1670,7 @@ function speakMJ(text) {
             "MJ Voice:",
             femaleVoice.name
         );
+
     }
 
 
