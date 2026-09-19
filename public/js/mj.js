@@ -129,10 +129,12 @@ function setDarkModeFromMJ(enable) {
     applyDarkMode(enable);
 
     speakMJ(
-        enable
-            ? "Ji Boss, dark mode on kar diya."
-            : "Ji Boss, light mode on kar diya."
-    );
+  
+
+    enable
+        ? "Dark mode is on, Sir."
+        : "Light mode is on, Sir."
+);
 }
 
 
@@ -245,10 +247,10 @@ if (SpeechRecognition && mjButton) {
 
 
             if (!message) {
-
-                speakMJ(
-                    "Boss, mujhe kuch sunai nahi diya."
-                );
+speakMJ(
+    " mujhe kuch sunai nahi diya.",
+    "Sir, I didn't hear anything."
+);
 
                 return;
             }
@@ -300,30 +302,36 @@ if (SpeechRecognition && mjButton) {
                 "not-allowed"
             ) {
 
-                speakMJ(
-                    "Boss, microphone ki permission de dijiye."
-                );
+               speakMJ(
+    "Boss, microphone ki permission de dijiye.",
+    "Sir, please allow microphone permission."
+);
 
-            }
+}
 
-            else if (
-                event.error ===
-                "no-speech"
-            ) {
+else if (
+    event.error ===
+    "no-speech"
+) {
 
-                speakMJ(
-                    "Boss, mujhe aapki awaaz sunai nahi di."
-                );
+    speakMJ(
+        " mujhe aapki awaaz sunai nahi di.",
+        "Sir, I couldn't hear your voice."
+    );
 
-            }
+}
 
-            else {
+else {
 
-                speakMJ(
-                    "Sorry Boss, voice mein thodi problem aa gayi."
-                );
+    speakMJ(
+        "Sorry Boss, voice mein thodi problem aa gayi.",
+        "Sorry Sir, there was a problem with the voice."
+    );
 
-            }
+}
+
+
+
 
         };
 
@@ -419,10 +427,10 @@ function handleDirectCommand(message) {
         console.log(
             "MJ: CREATE HOTEL COMMAND DETECTED"
         );
-
-        speakMJ(
-            "Create Hotel page open kar rahi hoon, Boss."
-        );
+speakMJ(
+    "Create Hotel page open kar rahi hoon, ",
+    "Opening the Create Hotel page, Sir."
+);
 
         setTimeout(() => {
 
@@ -468,10 +476,10 @@ function handleDirectCommand(message) {
             "MJ: CREATOR COMMAND DETECTED"
         );
 
-        speakMJ(
-            "Mujhe Divyansh Singh ne build kiya hai. Woh mere Boss hain."
-        );
-
+       speakMJ(
+    // "Mujhe Divyansh Singh ne build kiya hai. Woh mere Boss hain.",
+    "I was built by Divyansh Singh. He is my Boss."
+);
         return true;
     }
 
@@ -505,10 +513,10 @@ function handleDirectCommand(message) {
         console.log(
             "MJ: DIVYANSH COMMAND DETECTED"
         );
-
-        speakMJ(
-            "Divyansh mere boss hain. Main unki MJ hoon, AI assistant, aur woh Royal Stay ke owner hain."
-        );
+speakMJ(
+    // "Divyansh mere Boss hain. Main unki MJ hoon, AI assistant, aur woh Royal Stay ke owner hain.",
+    "Divyansh is my Boss. I am his MJ, an AI assistant, and he is the owner of Royal Stay."
+);
 
         return true;
     }
@@ -538,15 +546,17 @@ function handleDirectCommand(message) {
             currentUser.toLowerCase() === "divyansh"
         ) {
 
-            speakMJ(
-                "Aap hi mere boss ho, Divyansh."
-            );
+           speakMJ(
+    "Aap hi mere Boss ho, Divyansh.",
+    "You are my Sir, Divyansh."
+);
 
         } else {
 
-            speakMJ(
-                "Mere boss Divyansh Singh hain."
-            );
+           speakMJ(
+    // "Mere Boss Divyansh Singh hain.",
+    "My Boss is Divyansh Singh."
+);
 
         }
 
@@ -593,10 +603,10 @@ function handleDirectCommand(message) {
         console.log(
             "MJ: ROYAL STAY OWNER COMMAND DETECTED"
         );
-
-        speakMJ(
-            "Royal Stay ke owner Divyansh Singh hain."
-        );
+speakMJ(
+    // "Royal Stay ke owner Divyansh Singh hain.",
+    "The owner of Royal Stay is Divyansh Singh."
+);
 
         return true;
     }
@@ -622,11 +632,10 @@ function handleDirectCommand(message) {
         console.log(
             "MJ: Opening Home"
         );
-
-        speakMJ(
-            "Ji Boss, home page open kar rahi hoon."
-        );
-
+speakMJ(
+    "Ji home page open kar rahi hoon.",
+    "Opening the home page, Sir."
+);
         setTimeout(() => {
 
             window.location.href =
@@ -666,10 +675,10 @@ function handleDirectCommand(message) {
         console.log(
             "MJ: Opening Signup"
         );
-
-        speakMJ(
-            "Ji Boss, signup page open kar diya."
-        );
+speakMJ(
+    // "Ji Boss, signup page open kar diya.",
+    "Opened the signup page, Sir."
+);
 
         setTimeout(() => {
 
@@ -701,10 +710,10 @@ function handleDirectCommand(message) {
         console.log(
             "MJ: Opening Login"
         );
-
-        speakMJ(
-            "Ji Boss, login page open kar diya."
-        );
+speakMJ(
+    // "Ji Boss, login page open kar diya.",
+    "Opened the login page, Sir."
+);
 
         setTimeout(() => {
 
@@ -730,9 +739,10 @@ function handleDirectCommand(message) {
 
     ) {
 
-        speakMJ(
-            "Ji Boss, logout kar diya."
-        );
+       speakMJ(
+    // "Ji Boss, logout kar diya.",
+    "You have been logged out, Sir."
+);
 
         setTimeout(() => {
 
@@ -754,6 +764,7 @@ function handleDirectCommand(message) {
         text.includes("dark mode") ||
         text.includes("darkmode") ||
         text.includes("dark karo") ||
+          text.includes("night mode on") ||
         text.includes("dark kar do") ||
         text.includes("dark on") ||
         text.includes("dark chalu") ||
@@ -768,9 +779,10 @@ function handleDirectCommand(message) {
 
         applyDarkMode(true);
 
-        speakMJ(
-            "Ji Boss, dark mode chalu ho gya."
-        );
+       speakMJ(
+    // "Ji Boss, dark mode chalu ho gya.",
+    "Dark mode is on."
+);
 
         return true;
     }
@@ -800,9 +812,10 @@ function handleDirectCommand(message) {
 
         applyDarkMode(false);
 
-        speakMJ(
-            "Ji Boss, light mode chalu ho gya."
-        );
+       speakMJ(
+    // "Ji Boss, light mode Chalu ho gya.",
+    "Light mode is on, Sir."
+);
 
         return true;
     }
@@ -838,10 +851,10 @@ function handleDirectCommand(message) {
         sessionStorage.removeItem(
             "mjCurrentCategory"
         );
-
-        speakMJ(
-            "Ji Boss, saare hotels open kar diya."
-        );
+speakMJ(
+    "Ji Boss, saare hotels open kar diya.",
+    "Opening all hotels, Sir."
+);
 
         setTimeout(() => {
 
@@ -923,10 +936,10 @@ function handleDirectCommand(message) {
                 currentCategory
             );
 
-
-            speakMJ(
-                `Ji Boss, ${category} category open kar rahi hoon.`
-            );
+speakMJ(
+    `Ji Sir, ${category} category open .`,
+    `Opening the ${category} category, Sir.`
+);
 
 
             setTimeout(() => {
@@ -939,6 +952,83 @@ function handleDirectCommand(message) {
             return true;
         }
     }
+
+// =====================================================
+// RESERVE / BOOKING COMMAND
+// =====================================================
+
+if (
+    // Hinglish
+    text.includes("reserve karna hai") ||
+    text.includes("reserve karna he") ||
+    text.includes("reserve karo") ||
+    text.includes("reserve kar do") ||
+    text.includes("mujhe reserve karna hai") ||
+    text.includes("reservation karna hai") ||
+    text.includes("reservation karo") ||
+    text.includes("mujhe reservation karna hai") ||
+    text.includes("booking karni hai") ||
+    text.includes("booking karna hai") ||
+    text.includes("booking karo") ||
+    text.includes("mujhe booking karni hai") ||
+    text.includes("hotel reserve") ||
+    text.includes("hotel reservation") ||
+    text.includes("hotel booking") ||
+
+    // English
+    text.includes("make a reservation") ||
+    text.includes("make reservation") ||
+    text.includes("make a booking") ||
+    text.includes("book a hotel") ||
+    text.includes("book hotel") ||
+    text.includes("i want to reserve") ||
+    text.includes("i want a reservation") ||
+    text.includes("i want to book") ||
+    text.includes("open reservation") ||
+    text.includes("open booking") ||
+    text.includes("reservation form") ||
+    text.includes("booking form") ||
+
+    // Hindi
+    text.includes("रिजर्व करना है") ||
+    text.includes("रिजर्व करो") ||
+    text.includes("बुकिंग करनी है") ||
+    text.includes("बुकिंग करना है") ||
+    text.includes("होटल बुक करना है") ||
+    text.includes("होटल रिजर्व करना है")
+) {
+
+    console.log("MJ: RESERVE COMMAND DETECTED");
+
+   speakMJ(
+    "Ji Boss, reservation form open kar rahi hoon.",
+    "Opening the reservation form, Sir."
+);
+    setTimeout(() => {
+
+        const reserveButton = document.querySelector(".reserve-btn");
+
+        if (reserveButton) {
+            reserveButton.click();
+        } else {
+            console.log("MJ: Reserve button not found");
+           speakMJ(
+    "Boss, reserve button is page par nahi mila.",
+    "Sir, I couldn't find the reserve button on this page."
+);
+        }
+
+    }, 100);
+
+    return true;
+}
+
+
+
+
+
+
+
 
 
     // =================================================
@@ -984,10 +1074,10 @@ function handleDirectCommand(message) {
         // =================================================
 
         if (!currentCategory) {
-
-            speakMJ(
-                "Boss, pehle koi category open kijiye. Phir main usme se best hotel open kar dungi."
-            );
+speakMJ(
+    "sir, pehle koi category open kijiye. Phir main usme se best hotel open kar dungi.",
+    "Sir, please open a category first. Then I'll open the best hotel from it."
+);
 
             return true;
         }
@@ -998,10 +1088,10 @@ function handleDirectCommand(message) {
             currentCategory
         );
 
-
-        speakMJ(
-            `Ji Boss, ${currentCategory} category ka best hotel open kar rahi hoon.`
-        );
+speakMJ(
+    // `Ji sir, ${currentCategory} category ka best hotel open kar rahi hoon.`,
+    `Opening the best hotel in the ${currentCategory} category, Sir.`
+);
 
 
         // Backend ko request bhejo
@@ -1122,14 +1212,15 @@ async function awaitBestHotel() {
         );
 
 
-        if (!response.ok) {
+      if (!response.ok) {
 
-            speakMJ(
-                "Sorry Boss, best hotel find nahi ho paaya."
-            );
+    speakMJ(
+        "Sorry sir, best hotel find nahi ho paaya.",
+        "Sorry Sir, I couldn't find the best hotel."
+    );
 
-            return;
-        }
+    return;
+}
 
 
         // =================================================
@@ -1215,10 +1306,14 @@ async function awaitBestHotel() {
         // NO HOTEL FOUND
         // =================================================
 
-        speakMJ(
-            data.reply ||
-            `Boss, ${currentCategory} category mein koi hotel nahi mila.`
-        );
+      speakMJ(
+    data.reply ||
+    `Boss, ${currentCategory} category mein koi hotel nahi mila.`,
+
+    data.reply
+        ? null
+        : `Sir, I couldn't find any hotel in the ${currentCategory} category.`
+);
 
 
     }
@@ -1230,11 +1325,10 @@ async function awaitBestHotel() {
             error
         );
 
-
-        speakMJ(
-            "Sorry Boss, best hotel find karte time server mein problem aa gayi."
-        );
-
+speakMJ(
+    "Sorry Boss, best hotel find karte time server mein problem aa gayi.",
+    "Sorry Sir, there was a server problem while finding the best hotel."
+);
     }
 }
 
@@ -1328,10 +1422,10 @@ reply naturally in Hinglish.
         // =================================================
 
         if (!response.ok) {
-
-            speakMJ(
-                "Sorry Boss, abhi MJ available nahi hai."
-            );
+speakMJ(
+    "Sorry sir, abhi MJ available nahi hai.",
+    "Sorry Sir, MJ is not available right now."
+);
 
             return;
         }
@@ -1522,10 +1616,10 @@ reply naturally in Hinglish.
             error
         );
 
-
-        speakMJ(
-            "Sorry Boss, server se connection nahi ho paaya."
-        );
+speakMJ(
+    // "Sorry Boss, server se connection nahi ho paaya.",
+    "Sorry Sir, I couldn't connect to the server."
+);
 
     }
 }
@@ -1561,7 +1655,7 @@ function speakMJ(text) {
     // =================================================
 
     utterance.rate =
-        1.25;
+        1.16;
 
     utterance.pitch =
         1.08;

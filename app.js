@@ -23,8 +23,8 @@ mongoose.set("strictQuery", true);
 
 
 
-  //const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
-const dbUrl = process.env.ATLASDB_URL;
+ //  const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
+      const dbUrl = process.env.ATLASDB_URL;
 
 const ejsMate = require("ejs-mate");
 const wrapAsync = require("./utils/wrapAsync.js");
@@ -58,8 +58,8 @@ const userRouter = require("./routes/user.js");
 // ======================================================
 
 async function main() {
-    //await mongoose.connect(MONGO_URL);
-     await mongoose.connect(dbUrl);
+     //await mongoose.connect(MONGO_URL);
+    await mongoose.connect(dbUrl);
 }
 
 
@@ -73,6 +73,16 @@ app.set(
     "views",
     path.join(__dirname, "views")
 );
+
+
+
+
+
+
+
+
+
+
 
 
 // ======================================================
@@ -301,6 +311,13 @@ function detectMJCategory(message) {
 
     return null;
 }
+
+
+
+
+
+
+
 
 
 // ======================================================
@@ -563,8 +580,8 @@ app.post("/api/mj", async (req, res) => {
 
                     reply:
                         activeCategory
-                            ? `Sorry Boss, ${activeCategory} category mein abhi koi hotel available nahi hai.`
-                            : "Boss, pehle koi category open kar do, phir main usme best hotel open kar dungi."
+                            ? `Sorry sir, ${activeCategory} category mein abhi koi hotel available nahi hai.`
+                            : "sir, pehle koi category open kar do, phir main usme best hotel open kar dungi."
 
                 });
 
@@ -608,8 +625,8 @@ app.post("/api/mj", async (req, res) => {
 
                 reply:
                     activeCategory
-                        ? `Ji Boss, ${activeCategory} category ka best hotel open kar rahi hoon.`
-                        : `Ji Boss, ${bestHotel.title} open kar rahi hoon.`
+                        ? `Ji sir, ${activeCategory} category ka best hotel open kar rahi hoon.`
+                        : `Ji sir, ${bestHotel.title} open kar rahi hoon.`
 
             });
 
@@ -640,7 +657,7 @@ app.post("/api/mj", async (req, res) => {
                     )}`,
 
                 reply:
-                    `Ji Boss, ${detectedCategory} category open kar rahi hoon.`
+                    `Ji sir, ${detectedCategory} category open kar rahi hoon.`
 
             });
 
